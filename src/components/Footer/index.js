@@ -5,7 +5,7 @@ const Contain = styled.footer`
   width: 100vw;
   height: 120px;
   background-color: #444444;
-  position: fixed;
+  position: relative;
   bottom: 0;
 `;
 
