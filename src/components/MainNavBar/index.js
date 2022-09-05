@@ -103,13 +103,15 @@ const MainNavBar = () => {
           }}
         >
           <MenuItem value="">
-            <em>KO</em>
+            <em>EN</em>
             {/* <em onClick={() => clickHandler("ko")}>KO</em> */}
           </MenuItem>
           {/* <MenuItem value={10} onClick={() => clickHandler("en")}>
             EN
           </MenuItem> */}
-          <MenuItem value={10}>EN</MenuItem>
+          <MenuItem value={10}>한국어</MenuItem>
+          <MenuItem value={20}>日本語</MenuItem>
+          <MenuItem value={30}>中文</MenuItem>
         </Select>
       </DropdownContain>
     </Contain>
