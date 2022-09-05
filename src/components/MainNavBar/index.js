@@ -109,7 +109,7 @@ const MainNavBar = () => {
           style={{
             width: "80px",
             height: "25px",
-            fontSize: "5px",
+            fontSize: "16px",
             fontWeight: "600",
             margin: "13px",
             background: "#none",
