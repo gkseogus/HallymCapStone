@@ -107,7 +107,7 @@ const MainNavBar = () => {
           onChange={handleChange}
           displayEmpty
           style={{
-            width: "80px",
+            width: "95px",
             height: "25px",
             fontSize: "16px",
             fontWeight: "600",
@@ -115,14 +115,13 @@ const MainNavBar = () => {
             background: "#none",
           }}
         >
-          <MenuItem value="">
-            <em
-              style={{
-                fontWeight: 600,
-              }}
-            >
-              EN
-            </em>
+          <MenuItem
+            value=""
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            EN
             {/* <em onClick={() => clickHandler("ko")}>KO</em> */}
           </MenuItem>
           {/* <MenuItem value={10} onClick={() => clickHandler("en")}>
