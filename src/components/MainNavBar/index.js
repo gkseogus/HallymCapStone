@@ -11,7 +11,6 @@ const Contain = styled.nav`
   width: 100vw;
   height: 80px;
   top: 0;
-  background-color: #d9d9d9;
   display: flex;
 `;
 
@@ -33,15 +32,28 @@ const NavLinkContain = styled(Link)`
   text-decoration: none;
 `;
 
-const NavLinkText = styled.h2`
+const FirstNavLinkText = styled.h2`
   width: 160px;
   height: 48px;
   margin: 13px;
   justify-content: center;
   align-items: center;
-  background-color: #999999;
+  background-color: #1a73e8;
   display: grid;
   color: #ffffff;
+  font-size: 16px;
+  border-radius: 30px;
+`;
+
+const SecondNavLinkText = styled.h2`
+  width: 160px;
+  height: 48px;
+  margin: 13px;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
+  display: grid;
+  color: #202124;
   font-size: 16px;
   border-radius: 30px;
 `;
@@ -81,10 +93,10 @@ const MainNavBar = () => {
         <LogoText>Logo</LogoText>
       </LogoContain>
       <NavLinkContain to="/home">
-        <NavLinkText>Get Started</NavLinkText>
+        <FirstNavLinkText>Get Started</FirstNavLinkText>
       </NavLinkContain>
       <NavLinkContain to="/contact">
-        <NavLinkText>Contact Us</NavLinkText>
+        <SecondNavLinkText>Contact Us</SecondNavLinkText>
       </NavLinkContain>
       <IconContain>
         <AiOutlineGlobal />
@@ -95,23 +107,51 @@ const MainNavBar = () => {
           onChange={handleChange}
           displayEmpty
           style={{
-            width: "60.8px",
+            width: "80px",
             height: "25px",
             fontSize: "5px",
+            fontWeight: "600",
             margin: "13px",
             background: "#none",
           }}
         >
           <MenuItem value="">
-            <em>EN</em>
+            <em
+              style={{
+                fontWeight: 600,
+              }}
+            >
+              EN
+            </em>
             {/* <em onClick={() => clickHandler("ko")}>KO</em> */}
           </MenuItem>
           {/* <MenuItem value={10} onClick={() => clickHandler("en")}>
             EN
           </MenuItem> */}
-          <MenuItem value={10}>한국어</MenuItem>
-          <MenuItem value={20}>日本語</MenuItem>
-          <MenuItem value={30}>中文</MenuItem>
+          <MenuItem
+            value={10}
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            한국어
+          </MenuItem>
+          <MenuItem
+            value={20}
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            日本語
+          </MenuItem>
+          <MenuItem
+            value={30}
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            中文
+          </MenuItem>
         </Select>
       </DropdownContain>
     </Contain>
