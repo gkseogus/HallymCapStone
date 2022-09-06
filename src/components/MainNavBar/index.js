@@ -1,10 +1,10 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { AiOutlineGlobal } from "react-icons/ai";
 import styled from "styled-components";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import GlobalIcon from "./Img/globalIcon.svg";
 // import i18next from "../MainNavBar/I18n/index";
 
 const Contain = styled.nav`
@@ -38,7 +38,8 @@ const NavLinkContain = styled(Link)`
 const FirstNavLinkText = styled.h2`
   width: 160px;
   height: 48px;
-  margin: 13px;
+  margin-top: 13px;
+  margin-left: 30px;
   justify-content: center;
   align-items: center;
   background-color: #1a73e8;
@@ -51,7 +52,8 @@ const FirstNavLinkText = styled.h2`
 const SecondNavLinkText = styled.h2`
   width: 160px;
   height: 48px;
-  margin: 13px;
+  margin-top: 13px;
+  margin-left: 30px;
   justify-content: center;
   align-items: center;
   background-color: none;
@@ -61,10 +63,11 @@ const SecondNavLinkText = styled.h2`
   border-radius: 30px;
 `;
 
-const IconContain = styled.div`
+const IconContain = styled.img`
   width: 25px;
   height: 25px;
-  margin-top: 30px;
+  margin-left: 30px;
+  margin-top: 25px;
 `;
 
 const DropdownContain = styled.div`
@@ -100,9 +103,7 @@ const MainNavBar = () => {
       <NavLinkContain to="/contact">
         <SecondNavLinkText>Contact Us</SecondNavLinkText>
       </NavLinkContain>
-      <IconContain>
-        <AiOutlineGlobal />
-      </IconContain>
+      <IconContain src={GlobalIcon} alt="globalIcon" />
       <DropdownContain>
         <Select
           value={dropCount}
@@ -113,7 +114,8 @@ const MainNavBar = () => {
             height: "25px",
             fontSize: "16px",
             fontWeight: "600",
-            margin: "13px",
+            marginTop: "13px",
+            marginLeft: "8px",
             background: "#none",
           }}
         >
