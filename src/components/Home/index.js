@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 const Home1 = styled.div`
   position: relative;
@@ -50,6 +51,7 @@ const StartBtn = styled.div`
   height: 66px;
   bottom: 54px;
   right: 47px;
+
 
   background: #999999;
   border-radius: 35px;
@@ -149,6 +151,78 @@ const Home3 = styled.div`
   margin-left: -597px;
   background-color: #eeeeee;
 `;
+
+const Home3Img = styled.div`
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    left: 110px;
+    top: 150px;
+    background-color: rgb(199,199,199);
+`;
+
+const Home3P1 = styled.div`
+    position: absolute;
+    width: 620px;
+    height: 96px;
+    left: 60px;
+    top: 50px;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    text-align:start;
+
+    color: #000000; 
+`;
+
+const Home3ImgWrap = styled.div`
+    position: absolute;
+    width: 420px;
+    height: 500px;
+    left: 169px;
+    top: 266px;
+
+    background: #D9D9D9;
+    border-radius: 20px;
+`;
+
+const Home3P2 = styled.p`
+    position: absolute;
+    width: 430px;
+    height: 38px;
+    left: 649px;
+    top: 302px;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    text-align:start;
+
+    color: #000000;
+`;
+
+const Home3P3 = styled.p`
+    position: absolute;
+    width: 447px;
+    height: 116px;
+    left: 649px;
+    top: 400px;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    text-align:start;
+
+    color: #000000;
+`;
+
 const Home3Bottom = styled.div`
   display: flex;
   position: relative;
@@ -230,3 +304,4 @@ const Home = () => {
 };
 
 export default Home;
+
