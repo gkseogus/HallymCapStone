@@ -12,13 +12,16 @@ const Contain = styled.nav`
   height: 80px;
   top: 0;
   display: flex;
+  position: fixed;
+  background-color: white;
+  z-index: 10;
 `;
 
 const LogoContain = styled.div`
   width: 50px;
   height: 50px;
   margin: auto;
-  margin-left: 20%;
+  margin-left: 15.5%;
   background-color: #999999;
   border-radius: 10px;
 `;
@@ -61,7 +64,6 @@ const SecondNavLinkText = styled.h2`
 const IconContain = styled.div`
   width: 25px;
   height: 25px;
-  margin-left: 3%;
   margin-top: 30px;
 `;
 
@@ -69,7 +71,7 @@ const DropdownContain = styled.div`
   width: 60px;
   height: 25px;
   margin-top: 13px;
-  margin-right: 4%;
+  margin-right: 19%;
 `;
 
 const MainNavBar = () => {
