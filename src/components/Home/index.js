@@ -178,8 +178,8 @@ const Home3Bottom3 = styled.div`
   right: 0;
   background-color: #444444;
 `;
-const Home4 = styled.div``;
-function Home() {
+
+const Home = () => {
   return (
     <div>
       <Home1>
@@ -227,6 +227,6 @@ function Home() {
       </Home3>
     </div>
   );
-}
+};
 
 export default Home;
