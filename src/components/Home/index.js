@@ -421,7 +421,7 @@ function Home(){
                 <Home1P2>Mattis ipsum purus ante in ac.</Home1P2>
             </div>
             <NavStartBtn to="/main">Get Started</NavStartBtn>
-        </Home1>
+        </Home1> 
         
         <Home2>
             <Home2Left />
