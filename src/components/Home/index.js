@@ -6,6 +6,7 @@ const Home1 = styled.div`
   width: 1194px;
   height: 840px;
   left: 50%;
+  margin-top: 80px;
   margin-left: -597px;
   background-color: #eeeeee;
 `;
