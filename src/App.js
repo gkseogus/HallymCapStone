@@ -1,22 +1,21 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-import AllRoutes from "./AllRountes";
-import MainNavBar from "./components/MainNavBar";
+import MainNavbar from "./components/MainNavbar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import Main from "./components/Main";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <MainNavBar />
+        <MainNavbar />
         <Home />
+        <Main />
         <Footer />
-        {/* <AllRoutes /> */}
       </BrowserRouter>
     </div>
   );
 }
-
 
 export default App;
