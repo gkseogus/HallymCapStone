@@ -1,4 +1,3 @@
-import { display } from "@mui/system";
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
@@ -68,6 +67,7 @@ const SelectButton = styled.button`
 
 const SelectText = styled.p`
   font-size: 28px;
+  cursor: pointer;
   margin: auto;
   color: #ffffff;
 `;
@@ -75,11 +75,14 @@ const SelectText = styled.p`
 const Main = (props) => {
   const [toggle, setToggle] = useState(false);
 
-  const onDrop = useCallback((acceptedFiles) => {
-    setToggle(!toggle);
-    // Do something with the files
-    console.log(acceptedFiles);
-  }, []);
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      setToggle(!toggle);
+      // Do something with the files
+      console.log(acceptedFiles);
+    },
+    [toggle]
+  );
 
   const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
     onDrop,
