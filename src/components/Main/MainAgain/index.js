@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import SubtractIcon from "../Img/subtractIcon.svg";
 
 const Contain = styled.div`
   width: 1194px;
-  height: 1000px;
+  height: 958px;
   position: relative;
   left: 50%;
   margin-top: 80px;
@@ -17,24 +18,48 @@ const FileNameContain = styled.div`
   border: 3px solid #444444;
   border-radius: 10px;
   stroke-width: 10px;
-  flex-direction: "row";
-  flex-wrap: "wrap";
+  margin-top: 360px;
+  margin-left: 144px;
+  position: absolute;
   background-color: #ffffff;
 `;
 
 const FileName = styled.aside`
+  width: 293px;
+  height: 27px;
   position: absolute;
-  margin-left: 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  margin-left: 30px;
+  margin-top: 17px;
   font-size: 18px;
   color: #444444;
-  float: left;
+`;
+
+const SubtractContain = styled.img`
+  cursor: pointer;
+  margin-top: 18.5px;
+  margin-left: 851px;
 `;
 
 const MainAgain = (props) => {
+  const FileDelete = () => {
+    props.files.filter((files) => files.key !== props.key);
+    console.log("test", props.files);
+  };
+
+  console.log("test", props.files);
   return (
     <Contain>
       <FileNameContain>
         <FileName>{props.files}</FileName>
+        <SubtractContain
+          src={SubtractIcon}
+          alt="subtract button"
+          onClick={FileDelete}
+        />
       </FileNameContain>
     </Contain>
   );
