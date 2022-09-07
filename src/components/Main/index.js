@@ -12,12 +12,8 @@ const Contain = styled.div`
   margin-top: 80px;
   margin-left: -597px;
   background-color: #f0f0f0;
-  display: ${(props) => (props.toggle ? "none" : "block")};
 `;
 
-const MainAgainContain = styled.div`
-  display: ${(props) => (props.toggle ? "block" : "none")};
-`;
 const DropzoneContain = styled.div`
   width: 846px;
   height: 578px;
@@ -80,15 +76,15 @@ const SelectText = styled.p`
 `;
 
 const Main = (props) => {
-  const [toggle, setToggle] = useState(false);
+  const [change, setChange] = useState(false);
 
   const onDrop = useCallback(
     (acceptedFiles) => {
-      setToggle(!toggle);
+      setChange(!change);
       // Do something with the files
       console.log(acceptedFiles);
     },
-    [toggle]
+    [change]
   );
 
   const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
@@ -106,21 +102,22 @@ const Main = (props) => {
 
   return (
     <div>
-      <Contain toggle={toggle}>
-        <DropzoneContain {...getRootProps({ className: "dropzone" })}>
-          <InputContain>
-            <Inputprops {...getInputProps()} />
-            <InputText>Dropdown your video or Select File</InputText>
-            <InputLogoContain src={DropIcon} alt="dropIcon" />
-          </InputContain>
-        </DropzoneContain>
-        <SelectButton>
-          <SelectText onClick={open}>Select File </SelectText>
-        </SelectButton>
-      </Contain>
-      <MainAgainContain toggle={toggle}>
+      {change ? (
         <MainAgain files={files} />
-      </MainAgainContain>
+      ) : (
+        <Contain>
+          <DropzoneContain {...getRootProps({ className: "dropzone" })}>
+            <InputContain>
+              <Inputprops {...getInputProps()} />
+              <InputText>Dropdown your video or Select File</InputText>
+              <InputLogoContain src={DropIcon} alt="dropIcon" />
+            </InputContain>
+          </DropzoneContain>
+          <SelectButton>
+            <SelectText onClick={open}>Select File </SelectText>
+          </SelectButton>
+        </Contain>
+      )}
     </div>
   );
 };
