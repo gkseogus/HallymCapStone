@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import SubtractIcon from "../Img/subtractIcon.svg";
 import Main from "../index";
 
@@ -11,6 +11,71 @@ const Contain = styled.div`
   margin-top: 80px;
   margin-left: -597px;
   background-color: #f0f0f0;
+`;
+
+const Circle = styled.div`
+  width: 346px;
+  height: 346px;
+  margin-top: 111px;
+  margin-left: 40px;
+  border-radius: 100%;
+  background-color: #c8e1ff;
+  position: absolute;
+  ${(props) =>
+    props.pink &&
+    css`
+      width: 81px;
+      height: 81px;
+      margin-top: 412px;
+      margin-left: 102px;
+      border-radius: 100%;
+      background-color: #ffc8f9;
+      position: absolute;
+    `}
+  ${(props) =>
+    props.aqua &&
+    css`
+      width: 133px;
+      height: 133px;
+      margin-top: 622px;
+      margin-left: 272px;
+      border-radius: 100%;
+      background-color: #bcf7f3;
+      position: absolute;
+    `}
+    ${(props) =>
+    props.green &&
+    css`
+      width: 153px;
+      height: 153px;
+      margin-top: 401px;
+      margin-left: 574px;
+      border-radius: 100%;
+      background-color: #c8e9a7;
+      position: absolute;
+    `}
+    ${(props) =>
+    props.red &&
+    css`
+      width: 207px;
+      height: 207px;
+      margin-top: 718px;
+      margin-left: 724px;
+      border-radius: 100%;
+      background-color: #ffaaaa;
+      position: absolute;
+    `}
+    ${(props) =>
+    props.yellow &&
+    css`
+      width: 265px;
+      height: 265px;
+      margin-top: 224px;
+      margin-left: 929px;
+      border-radius: 100%;
+      background-color: #f5d29c;
+      position: absolute;
+    `}
 `;
 
 const FileNameContain = styled.div`
@@ -43,6 +108,11 @@ const SubtractContain = styled.img`
   cursor: pointer;
   margin-top: 18.5px;
   margin-left: 851px;
+`;
+
+const BtnContain = styled.div`
+  position: absolute;
+  margin-left: 1%;
 `;
 
 const SelectButton = styled.button`
@@ -101,6 +171,12 @@ const MainAgain = (props) => {
         <Main />
       ) : (
         <Contain>
+          <Circle />
+          <Circle pink />
+          <Circle aqua />
+          <Circle green />
+          <Circle red />
+          <Circle yellow />
           <FileNameContain>
             <FileName>{props.files}</FileName>
             <SubtractContain
@@ -109,12 +185,14 @@ const MainAgain = (props) => {
               onClick={FileDelete}
             />
           </FileNameContain>
-          <SelectButton>
-            <ButtonText onClick={SelectAgain}>Select Again</ButtonText>
-          </SelectButton>
-          <AnalyzeButton>
-            <ButtonText>Analyze video</ButtonText>
-          </AnalyzeButton>
+          <BtnContain>
+            <SelectButton>
+              <ButtonText onClick={SelectAgain}>Select Again</ButtonText>
+            </SelectButton>
+            <AnalyzeButton>
+              <ButtonText>Analyze video</ButtonText>
+            </AnalyzeButton>
+          </BtnContain>
         </Contain>
       )}
     </div>
