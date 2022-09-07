@@ -88,6 +88,7 @@ const FileNameContain = styled.div`
   margin-left: 144px;
   position: absolute;
   background-color: #ffffff;
+  z-index: 1;
 `;
 
 const FileName = styled.aside`
@@ -156,11 +157,6 @@ const ButtonText = styled.p`
 const MainAgain = (props) => {
   const [change, setChange] = useState(false);
 
-  const FileDelete = () => {
-    props.files.filter((files) => files.key !== props.key);
-    console.log("test", props.files);
-  };
-
   const SelectAgain = useCallback(() => {
     setChange(!change);
   }, [change]);
@@ -182,7 +178,7 @@ const MainAgain = (props) => {
             <SubtractContain
               src={SubtractIcon}
               alt="subtract button"
-              onClick={FileDelete}
+              onClick={SelectAgain}
             />
           </FileNameContain>
           <BtnContain>
