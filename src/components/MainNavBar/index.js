@@ -10,16 +10,20 @@ import GlobalIcon from "./Img/globalIcon.svg";
 const Contain = styled.nav`
   width: 100vw;
   height: 80px;
-  top: 0;
+  left: 0px;
+  top: 0px;
   display: flex;
   position: fixed;
   background-color: white;
+  filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
   z-index: 10;
 `;
 
 const LogoContain = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  left: 0px;
+  top: 10px;
   margin: auto;
   margin-left: 18.5%;
   background-color: #999999;
@@ -36,9 +40,9 @@ const NavLinkContain = styled(Link)`
 `;
 
 const FirstNavLinkText = styled.h2`
-  width: 160px;
-  height: 48px;
-  margin-top: 13px;
+  width: 122px;
+  height: 40px;
+  margin-top: 20px;
   margin-left: 30px;
   justify-content: center;
   align-items: center;
@@ -50,9 +54,9 @@ const FirstNavLinkText = styled.h2`
 `;
 
 const SecondNavLinkText = styled.h2`
-  width: 160px;
-  height: 48px;
-  margin-top: 13px;
+  width: 122px;
+  height: 40px;
+  margin-top: 20px;
   margin-left: 30px;
   justify-content: center;
   align-items: center;
@@ -64,17 +68,20 @@ const SecondNavLinkText = styled.h2`
 `;
 
 const IconContain = styled.img`
-  width: 25px;
-  height: 25px;
-  margin-left: 30px;
-  margin-top: 25px;
+  width: 20px;
+  height: 20px;
+  top: 9.5px;
+  left: 4px;
+  margin-left: 30.5px;
+  margin-top: 29.5px;
 `;
 
 const DropdownContain = styled.div`
-  width: 60px;
-  height: 25px;
+  width: 55px;
+  height: 21px;
   margin-top: 13px;
-  margin-right: 21.5%;
+  margin-left: 8px;
+  margin-right: 21.7%;
 `;
 
 const MainNavBar = () => {
