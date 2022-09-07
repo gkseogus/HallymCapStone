@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-import MainNavbar from "./components/MainNavbar";
+import MainNavbar from "./components/MainNavBar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Main from "./components/Main";
