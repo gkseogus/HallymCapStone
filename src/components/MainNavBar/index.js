@@ -50,7 +50,9 @@ const FirstNavLinkText = styled.h2`
   display: grid;
   color: #ffffff;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 30px;
+  font-family: "Noto Sans CJK KR";
 `;
 
 const SecondNavLinkText = styled.h2`
@@ -64,7 +66,9 @@ const SecondNavLinkText = styled.h2`
   display: grid;
   color: #202124;
   font-size: 16px;
+  font-weight: 700;
   border-radius: 30px;
+  font-family: "Noto Sans CJK KR";
 `;
 
 const IconContain = styled.img`
