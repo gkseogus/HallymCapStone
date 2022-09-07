@@ -1,7 +1,9 @@
-import React, { useCallback } from "react";
+import { display } from "@mui/system";
+import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import styled from "styled-components";
 import DropIcon from "../Main/Img/dropIcon.svg";
+import MainAgain from "./MainAgain";
 
 const Contain = styled.div`
   width: 1194px;
@@ -11,8 +13,12 @@ const Contain = styled.div`
   margin-top: 80px;
   margin-left: -597px;
   background-color: #f0f0f0;
+  display: ${(props) => (props.toggle ? "none" : "block")};
 `;
 
+const MainAgainContain = styled.div`
+  display: ${(props) => (props.toggle ? "block" : "none")};
+`;
 const DropzoneContain = styled.div`
   width: 846px;
   height: 578px;
@@ -67,12 +73,15 @@ const SelectText = styled.p`
 `;
 
 const Main = (props) => {
+  const [toggle, setToggle] = useState(false);
+
   const onDrop = useCallback((acceptedFiles) => {
+    setToggle(!toggle);
     // Do something with the files
     console.log(acceptedFiles);
   }, []);
 
-  const { getRootProps, getInputProps, open } = useDropzone({
+  const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
     onDrop,
     noClick: true,
     noKeyboard: true,
@@ -81,19 +90,28 @@ const Main = (props) => {
     },
   });
 
+  const files = acceptedFiles.map((file) => (
+    <h2 key={file.path}>{file.path}</h2>
+  ));
+
   return (
-    <Contain>
-      <DropzoneContain {...getRootProps({ className: "dropzone" })}>
-        <InputContain>
-          <Inputprops {...getInputProps()} />
-          <InputText>Dropdown your video or Select File</InputText>
-          <InputLogoContain src={DropIcon} alt="dropIcon" />
-        </InputContain>
-      </DropzoneContain>
-      <SelectButton>
-        <SelectText onClick={open}>Select File </SelectText>
-      </SelectButton>
-    </Contain>
+    <div>
+      <Contain toggle={toggle}>
+        <DropzoneContain {...getRootProps({ className: "dropzone" })}>
+          <InputContain>
+            <Inputprops {...getInputProps()} />
+            <InputText>Dropdown your video or Select File</InputText>
+            <InputLogoContain src={DropIcon} alt="dropIcon" />
+          </InputContain>
+        </DropzoneContain>
+        <SelectButton>
+          <SelectText onClick={open}>Select File </SelectText>
+        </SelectButton>
+      </Contain>
+      <MainAgainContain toggle={toggle}>
+        <MainAgain files={files} />
+      </MainAgainContain>
+    </div>
   );
 };
 
