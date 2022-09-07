@@ -42,8 +42,11 @@ const InputContain = styled.div`
 const Inputprops = styled.input``;
 
 const InputText = styled.p`
+  font-family: "Noto Sans CJK KR";
+  font-style: normal;
+  font-weight: 500;
   font-size: 24px;
-  font-weight: 600;
+  line-height: 36px;
   color: #444444;
 `;
 
@@ -66,10 +69,14 @@ const SelectButton = styled.button`
 `;
 
 const SelectText = styled.p`
-  font-size: 28px;
   cursor: pointer;
   margin: auto;
   color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 41px;
+  text-align: center;
 `;
 
 const Main = (props) => {
