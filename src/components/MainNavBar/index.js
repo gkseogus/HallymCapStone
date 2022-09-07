@@ -21,7 +21,7 @@ const LogoContain = styled.div`
   width: 50px;
   height: 50px;
   margin: auto;
-  margin-left: 15.5%;
+  margin-left: 18.5%;
   background-color: #999999;
   border-radius: 10px;
 `;
@@ -74,7 +74,7 @@ const DropdownContain = styled.div`
   width: 60px;
   height: 25px;
   margin-top: 13px;
-  margin-right: 19%;
+  margin-right: 21.5%;
 `;
 
 const MainNavBar = () => {
