@@ -108,10 +108,10 @@ const MainNavBar = () => {
         {/* Logo는 예시 -> 나중에 이미지로 교체 */}
         <LogoText>Logo</LogoText>
       </LogoContain>
-      <NavLinkContain to="/home">
+      <NavLinkContain to="/main">
         <FirstNavLinkText>Get Started</FirstNavLinkText>
       </NavLinkContain>
-      <NavLinkContain to="/main">
+      <NavLinkContain to="/contact">
         <SecondNavLinkText>Contact Us</SecondNavLinkText>
       </NavLinkContain>
       <IconContain src={GlobalIcon} alt="globalIcon" />
