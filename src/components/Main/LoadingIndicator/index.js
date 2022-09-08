@@ -40,7 +40,7 @@ const LoadingSubText = styled.p`
   color: #999999;
 `;
 
-const MainLoding = (props) => {
+const LoadingIndicator = (props) => {
   const { promiseInProgress } = usePromiseTracker();
 
   return (
@@ -56,4 +56,4 @@ const MainLoding = (props) => {
   );
 };
 
-export default MainLoding;
+export default LoadingIndicator;
