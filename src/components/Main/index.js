@@ -19,7 +19,7 @@ const DropzoneContain = styled.div`
   height: 578px;
   border-radius: 20px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
@@ -58,7 +58,7 @@ const SelectButton = styled.button`
   height: 65px;
   border: 0;
   outline: 0;
-  top: 90%;
+  top: 80%;
   position: relative;
   border-radius: 100px;
   background-color: #1a73e8;

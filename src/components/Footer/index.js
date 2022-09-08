@@ -11,7 +11,6 @@ const Contain = styled.footer`
 
 const TextContain = styled.div`
   height: 33px;
-  margin-top: 42px;
   margin-left: 60px;
   display: flex;
 `;
