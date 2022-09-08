@@ -1,7 +1,7 @@
 import React from "react";
 import { usePromiseTracker } from "react-promise-tracker";
 import styled from "styled-components";
-import Spinner from "../Img/spinner.png";
+import Spinner from "../LoadingIndicator/spinner.png";
 
 const Contain = styled.div`
   display: flex;
