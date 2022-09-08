@@ -10,39 +10,45 @@ const Contain = styled.footer`
 `;
 
 const TextContain = styled.div`
-  height: 38px;
+  height: 33px;
+  margin-top: 42px;
   margin-left: 60px;
   display: flex;
 `;
 
 const FooterTeamText = styled.p`
-  color: white;
-  font-size: 32px;
-  font-weight: 600;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 34px;
 `;
 
 const PositonText = styled.p`
-  color: white;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 600;
   margin-left: 30px;
   margin-top: 60px;
+  font-family: "Noto Sans CJK KR";
 `;
 
 const NameText = styled.p`
-  color: white;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 600;
-  margin-left: 8px;
+  margin-left: 10px;
   margin-top: 60px;
+  display: flex;
+  font-family: "Noto Sans CJK KR";
 `;
 
 const CopyrightText = styled.p`
-  color: white;
-  font-size: 12px;
-  font-weight: 600;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
   margin-left: 35%;
-  margin-top: 60px;
+  margin-top: 56px;
+  font-family: "Noto Sans CJK KR";
 `;
 
 const Footer = () => {
