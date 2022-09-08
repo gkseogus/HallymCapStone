@@ -111,7 +111,7 @@ const MainNavBar = () => {
       <NavLinkContain to="/home">
         <FirstNavLinkText>Get Started</FirstNavLinkText>
       </NavLinkContain>
-      <NavLinkContain to="/contact">
+      <NavLinkContain to="/main">
         <SecondNavLinkText>Contact Us</SecondNavLinkText>
       </NavLinkContain>
       <IconContain src={GlobalIcon} alt="globalIcon" />
