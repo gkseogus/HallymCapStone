@@ -401,7 +401,7 @@ const Home4Div3 = styled.div`
   background-color: #eeeeee;
 `;
 
-function Home() {
+const Home = () => {
   return (
     <div>
       <Home1>
@@ -477,6 +477,6 @@ function Home() {
       </Home4>
     </div>
   );
-}
+};
 
 export default Home;
