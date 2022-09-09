@@ -6,6 +6,7 @@ import MainNavBar from "./components/Main/MainNavBar";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Main from "./components/Main";
+import Contact from "./components/Contact";
 
 const AllRoutesApp = () => (
   <Router>
@@ -43,6 +44,7 @@ const AllRoutesApp = () => (
         element={
           <div>
             <MainNavBar />
+            <Contact />
             <Footer />
           </div>
         }
