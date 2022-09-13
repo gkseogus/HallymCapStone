@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import styled, { css } from "styled-components";
 import SubtractIcon from "../Img/subtractIcon.svg";
 import Main from "../index";
+import MainAnalyze from "../MainAnalyze";
 
 const Contain = styled.div`
   width: 1194px;
@@ -156,16 +157,25 @@ const ButtonText = styled.p`
 
 const MainAgain = (props) => {
   const [change, setChange] = useState(false);
+  const [changeAnal, setChangeAnal] = useState(false);
 
   const SelectAgain = useCallback(() => {
     setChange(!change);
-  }, [change]);
+    setChangeAnal(changeAnal);
+  }, [change, changeAnal]);
+
+  const SelectAnalyze = useCallback(() => {
+    setChange(change);
+    setChangeAnal(!changeAnal);
+  }, [change, changeAnal]);
 
   return (
     <div>
-      {change ? (
+      {change && !changeAnal ? (
         <Main />
-      ) : (
+      ) : !change && changeAnal ? (
+        <MainAnalyze />
+      ) : !change && !changeAnal ? (
         <Contain>
           <Circle />
           <Circle pink />
@@ -186,11 +196,11 @@ const MainAgain = (props) => {
               <ButtonText onClick={SelectAgain}>Select Again</ButtonText>
             </SelectButton>
             <AnalyzeButton>
-              <ButtonText>Analyze video</ButtonText>
+              <ButtonText onClick={SelectAnalyze}>Analyze video</ButtonText>
             </AnalyzeButton>
           </BtnContain>
         </Contain>
-      )}
+      ) : null}
     </div>
   );
 };
