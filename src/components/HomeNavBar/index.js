@@ -102,16 +102,20 @@ const MainNavBar = () => {
   //     i18next.changeLanguage(lang);
   //   };
 
+  const ScrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Contain>
       <LogoContain>
         {/* Logo는 예시 -> 나중에 이미지로 교체 */}
         <LogoText>Logo</LogoText>
       </LogoContain>
-      <NavLinkContain to="/main">
+      <NavLinkContain onClick={ScrollTop} to="/main">
         <FirstNavLinkText>Get Started</FirstNavLinkText>
       </NavLinkContain>
-      <NavLinkContain to="/contact">
+      <NavLinkContain onClick={ScrollTop} to="/contact">
         <SecondNavLinkText>Contact Us</SecondNavLinkText>
       </NavLinkContain>
       <IconContain src={GlobalIcon} alt="globalIcon" />

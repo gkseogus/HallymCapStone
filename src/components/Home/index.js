@@ -402,6 +402,10 @@ const Home4Div3 = styled.div`
 `;
 
 const Home = () => {
+  const ScrollTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div>
       <Home1>
@@ -411,7 +415,9 @@ const Home = () => {
           </Home1P1>
           <Home1P2>Mattis ipsum purus ante in ac.</Home1P2>
         </div>
-        <NavStartBtn to="/main">Get Started</NavStartBtn>
+        <NavStartBtn onClick={ScrollTop} to="/main">
+          Get Started
+        </NavStartBtn>
       </Home1>
 
       <Home2>
