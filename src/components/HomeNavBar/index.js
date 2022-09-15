@@ -6,6 +6,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import GlobalIcon from "./Img/globalIcon.svg";
 // import i18next from "../MainNavBar/I18n/index";
+import navbarLogoIcon from "./Img/navbarLogoIcon.svg";
+import eyeTagIcon from "./Img/eyeTagIcon.svg";
 
 const Contain = styled.nav`
   width: 100vw;
@@ -19,20 +21,23 @@ const Contain = styled.nav`
   z-index: 10;
 `;
 
-const LogoContain = styled.div`
+const LogoContain = styled.img`
   width: 60px;
   height: 60px;
   left: 0px;
   top: 10px;
   margin: auto;
   margin-left: 18.5%;
-  background-color: #999999;
-  border-radius: 10px;
 `;
 
-const LogoText = styled.h2`
-  color: #ffffff;
-  font-size: 16px;
+const EyeTagIconContain = styled.img`
+  position: absolute;
+  width: 83px;
+  height: 30px;
+  left: 100px;
+  top: 10px;
+  margin-top: 10px;
+  margin-left: 18%;
 `;
 
 const NavLinkContain = styled(Link)`
@@ -108,10 +113,8 @@ const MainNavBar = () => {
 
   return (
     <Contain>
-      <LogoContain>
-        {/* Logo는 예시 -> 나중에 이미지로 교체 */}
-        <LogoText>Logo</LogoText>
-      </LogoContain>
+      <LogoContain src={navbarLogoIcon} alt="navbarLogoIcon" />
+      <EyeTagIconContain src={eyeTagIcon} alt="eyeTagIcon" />
       <NavLinkContain onClick={ScrollTop} to="/main">
         <FirstNavLinkText>Get Started</FirstNavLinkText>
       </NavLinkContain>
