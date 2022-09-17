@@ -45,23 +45,31 @@ const Home1P2 = styled.div`
   color: #000000;
 `;
 const NavStartBtn = styled(Link)`
-  padding: 15px 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 10px;
 
   position: absolute;
-  width: 223px;
-  height: 66px;
-  bottom: 54px;
-  right: 47px;
-  text-decoration: none;
-  background: #999999;
-  border-radius: 35px;
-  color: white;
+  width: 205px;
+  height: 65px;
+  right: 60px;
+  bottom: 120px;
 
-  font-family: Pretendard;
-  font-size: 30px;
+  background: #1A73E8;
+  box-shadow: 3px 5px 10px rgba(26, 115, 232, 0.15);
+  border-radius: 100px;
+
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
   font-weight: 700;
+  font-size: 28px;
+  line-height: 41px;
   text-align: center;
-  line-height: 66px;
+  color : #FFFFFF;
+  text-decoration: none;
 `;
 
 const Home2 = styled.div`
