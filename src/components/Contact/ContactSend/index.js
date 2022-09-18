@@ -1,0 +1,211 @@
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import "./send.css"
+import styled from "styled-components";
+
+const FormWrap = styled.div`
+    position:relatvie;
+    width: 100%;
+    height: 630px;
+    background: #E8F2FF;
+`;
+
+const Form = styled.form`
+    position: relative;
+    width: 1194px;
+    height: 100%;
+    margin: auto;
+`;
+
+const FormTitle = styled.p`
+    position: relative;
+    width: 311px;
+    height: 48px;
+    margin: auto;
+    top: 75px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #1A73E8;
+`;
+
+
+
+const FormDevEmail = styled.select`
+    position: relative;
+    width: 280px;
+    height: 41px;
+    
+    top: 205px;
+    margin: auto;
+
+    text-align: center;
+    background-color: #E8F2FF;
+    border: none;
+    border-bottom: 3px solid black;
+    color : #999999;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    padding-bottom: 10px;
+    `;
+
+const FormContent = styled.textarea`
+    top: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    position: relative;
+    width: 300px;
+    height: 41px;
+    margin: auto;
+
+    text-align: center;
+    overflow-y: hidden;
+    resize: none;
+    background-color: #E8F2FF;
+    border: none;
+    border-bottom: 3px solid black;
+    max-height: 66px;
+    ::placeholder{
+        color:#999999;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+    }
+`;
+
+const FormBtn = styled.button`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 24px;
+    gap: 10px;
+
+    position: relative;
+    width: 115px;
+    height: 57px;
+    
+    top:318px;
+    margin: auto;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #FFFFFF;
+    
+    background: #CCCCCC;
+    box-shadow: 3px 5px 10px rgba(32, 33, 36, 0.15);
+    border-radius: 100px;
+    border: none;
+    &:hover{
+        cursor:pointer;
+    }
+`;
+
+const FormBtnContent = styled.p`
+    margin-top: -3px;
+`;
+
+const ContactSend = () => {
+
+    const [Selected, setSelected] = useState("");
+    var docUrl = "https://script.google.com/macros/s/AKfycbwC_QoWQhudZCirMHW8cD9gGhVqFgJfSSVKAagCiNR8lhOCzanA_vtiYCZMHlFxI-L7/exec";
+
+    const textRef = useRef();
+    const handleResizeHeight = useCallback(() =>{
+        textRef.current.style.height = textRef.current.scrollHeight + "px";
+    }, []);
+
+
+    const selectList = ["rlaehgusqp@naver.com", "fbznffldj998@naver.com", "moonb1504@gmail.com", "jeuns1108@gmail.com", "tmddnjs513@naver.com"];
+    const docsList = ["https://script.google.com/macros/s/AKfycbwC_QoWQhudZCirMHW8cD9gGhVqFgJfSSVKAagCiNR8lhOCzanA_vtiYCZMHlFxI-L7/exec"
+        , "https://script.google.com/macros/s/AKfycbzB5tTNPkXTmCKt3Sff2B6XrNF1v1AQKO1gBlXgTs7TjY4iNwO_ZyATWbBrEC1Yx4hR/exec"
+        , "https://script.google.com/macros/s/AKfycbxgWGVgrW4YOsGrrHQo7JJ6ofbnwxjFX1xgrdukwyThQnu_OGS7spXS0JsOA91xdPDu/exec"
+        , "https://script.google.com/macros/s/AKfycbyXa4Yrp2A2pb2gMnR1b9xYIRG2MnkxRKyH4jCz2Ruz1PUCnV7MoBrS4BVffKJjVNthfA/exec"
+        , "https://script.google.com/macros/s/AKfycbwdepghXyWZt875TsgMXJmPlM1zckVKjuZdEtiBr8wLNRgOOW-k06W1vVAkNCa-YyUr/exec"];
+
+    const handleSelect = (e) => {
+        setSelected(e.target.value);
+    };
+
+    const [inputValue, setInputValue] = useState(false);
+    const inputTest = (e)=>{
+        if(e.target.value != ""){
+            setInputValue(true);
+            console.log(inputValue)
+        }else if(e.target.value==""){
+            setInputValue(false);
+            console.log(inputValue)
+        }
+    };
+
+    return(
+        <FormWrap>
+            {
+                Selected=="rlaehgusqp@naver.com"
+                ? docUrl=docsList[0]
+                : (Selected=="fbznffldj998@naver.com")
+                    ? docUrl=docsList[1]
+                    : (Selected=="moonb1504@gmail.com")
+                        ? docUrl=docsList[2]
+                        : (Selected=="jeuns1108@gmail.com")
+                            ? docUrl=docsList[3]
+                            : (Selected=="tmddnjs513@naver.com")
+                                ? docUrl=docsList[4]
+                                : console.log("")
+
+            }
+            <Form method="post" action={docUrl}>
+                <FormTitle>Send a Message</FormTitle>
+                <div>
+                    <div>
+                        <input className={`inputTest==true ? view : hide`} type="email" id="email" name="email" placeholder="Your e-mail address" onChange={inputTest} />
+                    </div>
+                    <div>
+                        <FormDevEmail type="text" id="usr" name="username" placeholder="Select an address to send to" onChange={handleSelect} value={Selected}>
+                            <option>Select an address to send to</option>
+                            {
+                                selectList.map((item) => (
+                                    <option value={item} key={item}>
+                                    {item}
+                                    </option>
+                                ))
+                            }
+                        </FormDevEmail>
+                    </div>
+                </div>
+
+                <div>
+                    <FormContent rows="5" id="comment" name="message" placeholder="Write a message what you want" ref={textRef} onInput={handleResizeHeight}></FormContent>
+                </div>
+                <FormBtn type="submit">
+                    <FormBtnContent>Send</FormBtnContent>
+                </FormBtn>
+            </Form>
+        </FormWrap>  
+    )
+}
+
+
+export default ContactSend;
