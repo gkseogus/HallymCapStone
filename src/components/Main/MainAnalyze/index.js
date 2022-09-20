@@ -22,7 +22,7 @@ const SuccessContain = styled.div`
 
 const SussessTextContain = styled.div`
   margin-top: 146px;
-  margin-left: 476px;
+  margin-left: 534px;
   position: absolute;
 `;
 
@@ -45,30 +45,62 @@ const SuccessItem = styled.div`
   background-color: black;
 `;
 
-const AnalyzeButton = styled.button`
+const AnotherButton = styled.button`
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 150px;
+  position: absolute;
+  right: 150px;
+  width: 196px;
+  height: 59px;
+  background: #10bc7e;
+  box-shadow: 0px 4px 10px rgba(16, 188, 126, 0.15);
+  border-radius: 30px;
+  border: 0;
+  outline: 0;
+`;
+
+const AnotherText = styled.p`
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-top: 15px;
+`;
+
+const DownloadButton = styled.button`
   cursor: pointer;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 198px;
+  margin-top: 150px;
   position: absolute;
-  width: 238px;
-  height: 65px;
-  left: 12%;
+  width: 172px;
+  height: 59px;
+  left: 80%;
   background: #1a73e8;
-  box-shadow: 3px 5px 10px rgba(26, 115, 232, 0.15);
-  border-radius: 100px;
+  box-shadow: 0px 4px 10px rgba(26, 115, 232, 0.15);
+  border-radius: 30px;
   border: 0;
   outline: 0;
 `;
 
-const AnalyzeText = styled.p`
+const DownloadText = styled.p`
   font-family: "Noto Sans CJK KR";
   font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 41px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
   text-align: center;
   color: #ffffff;
 `;
@@ -77,13 +109,16 @@ const MainAnalyze = () => {
   return (
     <Contain>
       <SussessTextContain>
-        <SuccessText>Analysis Success!</SuccessText>
+        <SuccessText>Success!</SuccessText>
       </SussessTextContain>
       <SuccessContain>
         <SuccessItem />
-        <AnalyzeButton>
-          <AnalyzeText>Analyze video</AnalyzeText>
-        </AnalyzeButton>
+        <AnotherButton>
+          <AnotherText>Another File</AnotherText>
+        </AnotherButton>
+        <DownloadButton>
+          <DownloadText>Download</DownloadText>
+        </DownloadButton>
       </SuccessContain>
     </Contain>
   );
