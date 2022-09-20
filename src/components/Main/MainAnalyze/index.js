@@ -77,7 +77,7 @@ const MainAnalyze = () => {
   return (
     <Contain>
       <SussessTextContain>
-        <SuccessText>Analysis Success!</SuccessText>
+        <SuccessText>Success!</SuccessText>
       </SussessTextContain>
       <SuccessContain>
         <SuccessItem />
