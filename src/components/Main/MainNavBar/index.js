@@ -51,9 +51,9 @@ const FirstNavLinkText = styled.h2`
   margin-left: 30px;
   justify-content: center;
   align-items: center;
-  background-color: #1a73e8;
+  background-color: none;
   display: grid;
-  color: #ffffff;
+  color: #202124;
   font-size: 16px;
   font-weight: 700;
   border-radius: 30px;
