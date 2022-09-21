@@ -82,13 +82,15 @@ const Circle = styled.div`
 const FileNameContain = styled.div`
   width: 905px;
   height: 60px;
-  border: 3px solid #444444;
-  border-radius: 10px;
+  order: 0;
+  flex-grow: 0;
   stroke-width: 10px;
   margin-top: 360px;
   margin-left: 144px;
   position: absolute;
-  background-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
   z-index: 1;
 `;
 
@@ -145,21 +147,24 @@ const AnalyzeButton = styled.button`
 `;
 
 const ButtonText = styled.p`
-  margin-top: 12px;
-  font-family: "Noto Sans CJK KR";
+  margin-top: 15px;
+  font-family: "Pretendard";
   font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 41px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
   text-align: center;
   color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
 
 const MainAgain = (props) => {
   const [change, setChange] = useState(false);
   const [changeAnal, setChangeAnal] = useState(false);
 
-  const SelectAgain = useCallback(() => {
+  const ChooseAgain = useCallback(() => {
     setChange(!change);
     setChangeAnal(changeAnal);
   }, [change, changeAnal]);
@@ -188,12 +193,12 @@ const MainAgain = (props) => {
             <SubtractContain
               src={SubtractIcon}
               alt="subtract button"
-              onClick={SelectAgain}
+              onClick={ChooseAgain}
             />
           </FileNameContain>
           <BtnContain>
             <SelectButton>
-              <ButtonText onClick={SelectAgain}>Select Again</ButtonText>
+              <ButtonText onClick={ChooseAgain}>Choose Again</ButtonText>
             </SelectButton>
             <AnalyzeButton>
               <ButtonText onClick={SelectAnalyze}>Analyze video</ButtonText>
