@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
+import Main from "..";
 
 const Contain = styled.div`
   width: 1194px;
@@ -106,21 +107,33 @@ const DownloadText = styled.p`
 `;
 
 const MainAnalyze = () => {
+  const [another, setAnother] = useState(false);
+
+  const AhotherFile = useCallback(() => {
+    setAnother(!another);
+  }, [another]);
+
   return (
-    <Contain>
-      <SussessTextContain>
-        <SuccessText>Success!</SuccessText>
-      </SussessTextContain>
-      <SuccessContain>
-        <SuccessItem />
-        <AnotherButton>
-          <AnotherText>Another File</AnotherText>
-        </AnotherButton>
-        <DownloadButton>
-          <DownloadText>Download</DownloadText>
-        </DownloadButton>
-      </SuccessContain>
-    </Contain>
+    <div>
+      {another ? (
+        <Main />
+      ) : (
+        <Contain>
+          <SussessTextContain>
+            <SuccessText>Success!</SuccessText>
+          </SussessTextContain>
+          <SuccessContain>
+            <SuccessItem />
+            <AnotherButton onClick={AhotherFile}>
+              <AnotherText>Another File</AnotherText>
+            </AnotherButton>
+            <DownloadButton>
+              <DownloadText>Download</DownloadText>
+            </DownloadButton>
+          </SuccessContain>
+        </Contain>
+      )}
+    </div>
   );
 };
 
