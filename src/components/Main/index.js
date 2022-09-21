@@ -67,12 +67,16 @@ const SelectButton = styled.button`
 const SelectText = styled.p`
   cursor: pointer;
   margin: auto;
-  color: #ffffff;
+  font-family: "Pretendard";
   font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 41px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
   text-align: center;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
 
 const Main = (props) => {
