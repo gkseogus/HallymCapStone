@@ -1,7 +1,7 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import GlobalIcon from "./Img/globalIcon.svg";
@@ -17,7 +17,12 @@ const Contain = styled.nav`
   display: flex;
   position: fixed;
   background-color: white;
-  filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
+  ${({ active }) => {
+    if (active === true)
+      return css`
+        filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.1));
+      `;
+  }}
   z-index: 10;
 `;
 
@@ -93,7 +98,8 @@ const DropdownContain = styled.div`
   margin-right: 21.7%;
 `;
 
-const MainNavBar = () => {
+const MainNavBar = ({ scroll }) => {
+  const [toScroll, setToScroll] = useState(false);
   const [dropCount, setDropCount] = useState("");
 
   const handleChange = (event) => {
@@ -107,12 +113,29 @@ const MainNavBar = () => {
   //     i18next.changeLanguage(lang);
   //   };
 
+  const handleScroll = () => {
+    // 스크롤이 Top에서 10px 이상 내려오면 true값을 useState에 넣어줌
+    if (window.scrollY >= 10) {
+      setToScroll(!toScroll);
+    } else {
+      // 스크롤이 50px 미만일경우 false를 넣어줌
+      setToScroll(toScroll);
+    }
+  };
+
   const ScrollTop = () => {
     window.scrollTo(0, 0);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <Contain>
+    <Contain active={toScroll}>
       <LogoContain src={navbarLogoIcon} alt="navbarLogoIcon" />
       <EyeTagIconContain src={eyeTagIcon} alt="eyeTagIcon" />
       <NavLinkContain onClick={ScrollTop} to="/main">
