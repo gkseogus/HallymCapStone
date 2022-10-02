@@ -34,12 +34,58 @@ const FormTitle = styled.p`
     color: #1A73E8;
 `;
 
+const FormEmail = styled.input`
+    box-sizing: border-box;
 
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 68px;
+    gap: 10px;
+
+    width: 300px;
+    height: 37px;
+
+    border-bottom: 3px solid #202124;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #202124;
+
+
+    ::placeholder{
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: #BBBBBB;
+}
+`
 
 const FormDevEmail = styled.select`
     position: relative;
-    width: 280px;
-    height: 41px;
+
     
     top: 205px;
     margin: auto;
@@ -48,13 +94,31 @@ const FormDevEmail = styled.select`
     background-color: #E8F2FF;
     border: none;
     border-bottom: 3px solid black;
-    color : #999999;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #BBBBBB;
     padding-bottom: 10px;
+
+    width: 300px;
+    height: 41px;
+
+    border-bottom: 3px solid #202124;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    &:hover{
+        cursor:pointer;
+    }
     `;
 
 const FormContent = styled.textarea`
@@ -67,11 +131,27 @@ const FormContent = styled.textarea`
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    
+    text-align: center;
+    
+    color: #202124;
+    
     position: relative;
+
     width: 300px;
     height: 41px;
+
+    border-bottom: 3px solid #202124;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
     margin: auto;
 
     text-align: center;
@@ -82,15 +162,38 @@ const FormContent = styled.textarea`
     border-bottom: 3px solid black;
     max-height: 66px;
     ::placeholder{
-        color:#999999;
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 500;
-        font-size: 18px;
-        line-height: 21px;
-    }
+        font-size: 14px;
+        line-height: 17px;
+        /* identical to box height */
+
+        text-align: center;
+
+        color: #BBBBBB;
 `;
 
+const FormOption = styled.option`
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 39.5px;
+
+    line-height: 30px;
+
+    gap: 5px;
+    height: 41px;
+    width: 300px;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 60%;
+    bottom: 20%;
+    color: black;
+
+    background: #FFFFFF;
+`;
 const FormBtn = styled.button`
     display: flex;
     flex-direction: row;
@@ -130,7 +233,7 @@ const FormBtnContent = styled.p`
 const ContactSend = () => {
 
     const [Selected, setSelected] = useState("");
-    var docUrl = "https://script.google.com/macros/s/AKfycbwC_QoWQhudZCirMHW8cD9gGhVqFgJfSSVKAagCiNR8lhOCzanA_vtiYCZMHlFxI-L7/exec";
+    var docUrl = "";
 
     const textRef = useRef();
     const handleResizeHeight = useCallback(() =>{
@@ -160,36 +263,39 @@ const ContactSend = () => {
         }
     };
 
+
     return(
         <FormWrap>
-            {
-                Selected=="rlaehgusqp@naver.com"
-                ? docUrl=docsList[0]
-                : (Selected=="fbznffldj998@naver.com")
-                    ? docUrl=docsList[1]
-                    : (Selected=="moonb1504@gmail.com")
-                        ? docUrl=docsList[2]
-                        : (Selected=="jeuns1108@gmail.com")
-                            ? docUrl=docsList[3]
-                            : (Selected=="tmddnjs513@naver.com")
-                                ? docUrl=docsList[4]
-                                : console.log("")
+            <div style={{display:"none"}}>
+                {
+                    Selected=="rlaehgusqp@naver.com"
+                    ? docUrl=docsList[0]
+                    : ( Selected=="fbznffldj998@naver.com")
+                        ? docUrl=docsList[1]
+                        : (Selected=="moonb1504@gmail.com")
+                            ? docUrl=docsList[2]
+                            : (Selected=="jeuns1108@gmail.com")
+                                ? docUrl=docsList[3]
+                                : (Selected=="tmddnjs513@naver.com")
+                                    ? docUrl=docsList[4]
+                                    : console.log("")
 
-            }
+                }
+            </div>
             <Form method="post" action={docUrl}>
                 <FormTitle>Send a Message</FormTitle>
                 <div>
                     <div>
-                        <input className={`inputTest==true ? view : hide`} type="email" id="email" name="email" placeholder="Your e-mail address" onChange={inputTest} />
+                        <FormEmail className={`inputTest==true ? view : hide`} type="email" id="email" name="email" placeholder="Your e-mail address" onChange={inputTest} />
                     </div>
                     <div>
                         <FormDevEmail type="text" id="usr" name="username" placeholder="Select an address to send to" onChange={handleSelect} value={Selected}>
-                            <option>Select an address to send to</option>
+                            <FormOption>Select an address to send to</FormOption>
                             {
                                 selectList.map((item) => (
-                                    <option value={item} key={item}>
+                                    <FormOption value={item} key={item}>
                                     {item}
-                                    </option>
+                                    </FormOption>
                                 ))
                             }
                         </FormDevEmail>
@@ -203,9 +309,12 @@ const ContactSend = () => {
                     <FormBtnContent>Send</FormBtnContent>
                 </FormBtn>
             </Form>
+            
         </FormWrap>  
+        
     )
 }
 
 
 export default ContactSend;
+
