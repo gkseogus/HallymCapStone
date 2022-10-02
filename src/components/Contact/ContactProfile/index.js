@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import styled from "styled-components";
 import githubLogo from "../../../github.svg";
 import gmailLogo from "../../../mail.svg";
@@ -16,6 +17,7 @@ const PeopleWrap = styled.div`
 const PeopleWrap1 = styled.div`
     position: relative;
     width: 1194px;
+    height:430px;
     display:flex;
 `;
 const PeopleWrap2 = styled.div`
@@ -69,7 +71,7 @@ const People3 = styled.div`
     left: 50%;
     margin-left: calc(-363px);
 
-    top: 170px;
+    top: 60px;
 `;
 
 const People4 = styled.div`
@@ -86,7 +88,7 @@ const People4 = styled.div`
     left: 50%;
     margin-left: calc(30px);
 
-    top: 170px;
+    top: 60px;
 `;
 
 const People5 = styled.div`
@@ -103,7 +105,7 @@ const People5 = styled.div`
     left: 50%;
     margin-left: calc(-111px + 141px);
 
-    top: 170px;
+    top: 60px;
 `;
 
 const Position1 = styled.div`
@@ -293,7 +295,9 @@ const Email1CopyLogo = styled.img`
     flex: none;
     order: 1;
     flex-grow: 0;
+    
 `;
+
 const Email1 = styled.p`
 
     height: 21px;
@@ -308,7 +312,9 @@ const Email1 = styled.p`
     text-align: center;
 
     color: #202124;
-
+    &:hover{  
+        cursor:pointer;
+      }
 
     /* Inside auto layout */
 
@@ -381,14 +387,17 @@ const Github1 = styled.p`
     flex: none;
     order: 1;
     flex-grow: 0;
+
+    &:hover{
+        cursor:pointer;
+    }
     `;
 
 
 const ContactProfile = () => {
-
+    const email = ["fbznffldj998@naver.com", "rlaehgusqp@naver.com", "jeuns1108@gmail.com", "moonb1504@gmail.com", "tmddnjs513@naver.com"];
     return(
             <PeopleWrap>
-
 
                 <PeopleWrap1>
                     <People1>
@@ -400,12 +409,14 @@ const ContactProfile = () => {
                             <Name1>Daehyeon Han</Name1>
                             <EmailWrap1>
                                 <Email1Logo src={gmailLogo} />
-                                <Email1>fbznffldj998@naver.com</Email1>
+                                <CopyToClipboard text={email[0]} onCopy={()=>alert("주소가 복사되었습니다")}>
+                                    <Email1 className="URL">{email[0]}</Email1>
+                                </CopyToClipboard>
                                 <Email1CopyLogo src={copyLogo}/>
                             </EmailWrap1>
                             <GithubWrap1>
                                 <GithubLogo src={githubLogo} />
-                                <Github1>github</Github1>
+                                <Github1 onClick={() => window.open('https://github.com/gkseogus', '_blank')}>github</Github1>
                                 <Email1LinkLogo src={linkLogo}/>
                             </GithubWrap1>
                         </NameWrap1>
@@ -420,12 +431,14 @@ const ContactProfile = () => {
                             <Name1>Dohyun Kim</Name1>
                             <EmailWrap1>
                                 <Email1Logo src={gmailLogo} />
-                                <Email1>rlaehgusqp@naver.com</Email1>
+                                <CopyToClipboard text={email[1]} onCopy={()=>alert("주소가 복사되었습니다")}>
+                                    <Email1 className="URL">{email[1]}</Email1>
+                                </CopyToClipboard>                                
                                 <Email1CopyLogo src={copyLogo}/>
                             </EmailWrap1>
                             <GithubWrap1>
                                 <GithubLogo src={githubLogo} />
-                                <Github1>github</Github1>
+                                <Github1 onClick={() => window.open('https://github.com/doggang', '_blank')}>github</Github1>
                                 <Email1LinkLogo src={linkLogo}/>
                             </GithubWrap1>
                         </NameWrap1>
@@ -446,12 +459,14 @@ const ContactProfile = () => {
                             <Name1>Eunseo Jeon</Name1>
                             <EmailWrap1>
                                 <Email1Logo src={gmailLogo} />
-                                <Email1>jeuns1108@gmail.com</Email1>
+                                <CopyToClipboard text={email[2]} onCopy={()=>alert("주소가 복사되었습니다")}>
+                                    <Email1 className="URL">{email[2]}</Email1>
+                                </CopyToClipboard>                                
                                 <Email1CopyLogo src={copyLogo}/>
                             </EmailWrap1>
                             <GithubWrap1>
                                 <GithubLogo src={githubLogo} />
-                                <Github1>github</Github1>
+                                <Github1 onClick={() => window.open('https://github.com/jeonuenseo', '_blank')}>github</Github1>
                                 <Email1LinkLogo src={linkLogo}/>
                             </GithubWrap1>
                         </NameWrap1>
@@ -466,12 +481,14 @@ const ContactProfile = () => {
                             <Name1>Minjin Kim</Name1>
                             <EmailWrap1>
                                 <Email1Logo src={gmailLogo} />
-                                <Email1>moonb1504@gmail.com</Email1>
+                                <CopyToClipboard text={email[3]} onCopy={()=>alert("주소가 복사되었습니다")}>
+                                    <Email1 className="URL">{email[3]}</Email1>
+                                </CopyToClipboard>                                
                                 <Email1CopyLogo src={copyLogo}/>
                             </EmailWrap1>
                             <GithubWrap1>
                                 <GithubLogo src={githubLogo} />
-                                <Github1>github</Github1>
+                                <Github1 onClick={() => window.open('https://github.com/Miinjin', '_blank')}>github</Github1>
                                 <Email1LinkLogo src={linkLogo}/>
                             </GithubWrap1>
                         </NameWrap1>
@@ -486,12 +503,14 @@ const ContactProfile = () => {
                             <Name1>Seungwon Bang</Name1>
                             <EmailWrap1>
                                 <Email1Logo src={gmailLogo} />
-                                <Email1>tmddnjs513@naver.com</Email1>
+                                <CopyToClipboard text={email[4]} onCopy={()=>alert("주소가 복사되었습니다")}>
+                                    <Email1 className="URL">{email[4]}</Email1>
+                                </CopyToClipboard>                                
                                 <Email1CopyLogo src={copyLogo}/>
                             </EmailWrap1>
                             <GithubWrap1>
                                 <GithubLogo src={githubLogo} />
-                                <Github1>github</Github1>
+                                <Github1 onClick={() => window.open('https://github.com/seungwonB', '_blank')}>github</Github1>
                                 <Email1LinkLogo src={linkLogo}/>
                             </GithubWrap1>
                         </NameWrap1>
