@@ -106,13 +106,27 @@ const DownloadText = styled.p`
   color: #ffffff;
 `;
 
-const MainAnalyze = () => {
+const MainAnalyze = (props) => {
   const [another, setAnother] = useState(false);
 
-  const AhotherFile = useCallback(() => {
+  const ahotherFile = useCallback(() => {
     setAnother(!another);
   }, [another]);
 
+  const downloadFile = useCallback(() => {
+    let fileName = props.files[0].key;
+    let output = "string 타입의 데이터";
+    const element = document.createElement("a");
+    const file = new Blob([output], {
+      type: "video/*",
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = fileName;
+    document.body.appendChild(element);
+    element.click();
+  }, [props.files]);
+
+  console.log(props.files[0].key);
   return (
     <div>
       {another ? (
@@ -124,11 +138,11 @@ const MainAnalyze = () => {
           </SussessTextContain>
           <SuccessContain>
             <SuccessItem />
-            <AnotherButton onClick={AhotherFile}>
+            <AnotherButton onClick={ahotherFile}>
               <AnotherText>Another File</AnotherText>
             </AnotherButton>
             <DownloadButton>
-              <DownloadText>Download</DownloadText>
+              <DownloadText onClick={downloadFile}>Download</DownloadText>
             </DownloadButton>
           </SuccessContain>
         </Contain>
