@@ -179,7 +179,7 @@ const MainAgain = (props) => {
       {change && !changeAnal ? (
         <Main />
       ) : !change && changeAnal ? (
-        <MainAnalyze />
+        <MainAnalyze files={props.files} />
       ) : !change && !changeAnal ? (
         <Contain>
           <Circle />
