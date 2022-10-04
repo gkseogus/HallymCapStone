@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled, { css } from "styled-components";
+import axios from "axios";
 import SubtractIcon from "../Img/subtractIcon.svg";
 import Main from "../index";
 import MainAnalyze from "../MainAnalyze";
@@ -169,10 +170,27 @@ const MainAgain = (props) => {
     setChangeAnal(changeAnal);
   }, [change, changeAnal]);
 
-  const SelectAnalyze = useCallback(() => {
-    setChange(change);
-    setChangeAnal(!changeAnal);
-  }, [change, changeAnal]);
+  const SelectAnalyze = useCallback(
+    (files) => {
+      setChange(change);
+      setChangeAnal(!changeAnal);
+      writePost(files);
+    },
+    [change, changeAnal]
+  );
+
+  const writePost = async (files) => {
+    try {
+      //Successful response
+      await axios.post("http://localhost:8000/api/fileinsert", {
+        path: files.path,
+      });
+      console.log(files.path);
+    } catch (error) {
+      //Failed to respond
+      console.log("write error", error);
+    }
+  };
 
   return (
     <div>
@@ -201,7 +219,9 @@ const MainAgain = (props) => {
               <ButtonText onClick={ChooseAgain}>Choose Again</ButtonText>
             </SelectButton>
             <AnalyzeButton>
-              <ButtonText onClick={SelectAnalyze}>Analyze video</ButtonText>
+              <ButtonText onClick={SelectAnalyze(props.files)}>
+                Analyze video
+              </ButtonText>
             </AnalyzeButton>
           </BtnContain>
         </Contain>
