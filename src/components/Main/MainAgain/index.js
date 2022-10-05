@@ -164,28 +164,29 @@ const ButtonText = styled.p`
 const MainAgain = (props) => {
   const [change, setChange] = useState(false);
   const [changeAnal, setChangeAnal] = useState(false);
+  const downFile = props.files;
 
-  const ChooseAgain = useCallback(() => {
+  const chooseAgain = useCallback(() => {
     setChange(!change);
     setChangeAnal(changeAnal);
   }, [change, changeAnal]);
 
-  const SelectAnalyze = useCallback(
-    (files) => {
+  // const SelectAnalyze = useCallback(() => {
+  //   setChange(change);
+  //   setChangeAnal(!changeAnal);
+  // }, [change, changeAnal]);
+
+  const SelectAnalyze = async () => {
+    let file = new FormData();
+    const config = {
+      header: { "content-type": "multipart/form-data" },
+    };
+    file.append("file", downFile[0].key);
+    try {
       setChange(change);
       setChangeAnal(!changeAnal);
-      writePost(files);
-    },
-    [change, changeAnal]
-  );
-
-  const writePost = async (files) => {
-    try {
       //Successful response
-      await axios.post("http://localhost:8000/api/fileinsert", {
-        path: files.path,
-      });
-      console.log(files.path);
+      await axios.post("http://localhost:8000/api/fileinsert", file, config);
     } catch (error) {
       //Failed to respond
       console.log("write error", error);
@@ -211,17 +212,15 @@ const MainAgain = (props) => {
             <SubtractContain
               src={SubtractIcon}
               alt="subtract button"
-              onClick={ChooseAgain}
+              onClick={chooseAgain}
             />
           </FileNameContain>
           <BtnContain>
             <SelectButton>
-              <ButtonText onClick={ChooseAgain}>Choose Again</ButtonText>
+              <ButtonText onClick={chooseAgain}>Choose Again</ButtonText>
             </SelectButton>
             <AnalyzeButton>
-              <ButtonText onClick={SelectAnalyze(props.files)}>
-                Analyze video
-              </ButtonText>
+              <ButtonText onClick={SelectAnalyze}>Analyze video</ButtonText>
             </AnalyzeButton>
           </BtnContain>
         </Contain>
