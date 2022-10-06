@@ -170,22 +170,15 @@ const MainAgain = (props) => {
     setChangeAnal(changeAnal);
   }, [change, changeAnal]);
 
-  // const SelectAnalyze = useCallback(() => {
-  //   setChange(change);
-  //   setChangeAnal(!changeAnal);
-  // }, [change, changeAnal]);
-
   const SelectAnalyze = async () => {
-    let file = new FormData();
-    const config = {
-      header: { "content-type": "multipart/form-data" },
-    };
-    file.append("file", downFile[0].key);
     try {
+      console.log(downFile);
+      //Successful response
+      await axios.post("http://localhost:8000/api/insert", {
+        file: downFile[0].key,
+      });
       setChange(change);
       setChangeAnal(!changeAnal);
-      //Successful response
-      await axios.post("http://localhost:8000/api/fileinsert", file, config);
     } catch (error) {
       //Failed to respond
       console.log("write error", error);
