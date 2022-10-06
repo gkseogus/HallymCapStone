@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from "react";
+import { useEffect } from "react";
 import styled, { css } from "styled-components";
+import axios from "axios";
 import Main from "..";
 
 const Contain = styled.div`
@@ -172,25 +174,51 @@ const DownloadText = styled.p`
 
 const MainAnalyze = (props) => {
   const [another, setAnother] = useState(false);
+  const [fileData, setFileData] = useState("");
 
   const ahotherFile = useCallback(() => {
     setAnother(!another);
   }, [another]);
 
   const downloadFile = useCallback(() => {
-    let fileName = props.files[0].key;
     let output = "string 타입의 데이터";
     const element = document.createElement("a");
     const file = new Blob([output], {
       type: "video/*",
     });
     element.href = URL.createObjectURL(file);
-    element.download = fileName;
+    element.download = fileData;
     document.body.appendChild(element);
     element.click();
-  }, [props.files]);
+  }, [fileData]);
 
-  console.log(props.files[0].key);
+  // 게시물 불러오는 함수
+  const getList = async () => {
+    axios.defaults.withCredentials = true;
+    const config = {
+      headers: {
+        withCredentials: true,
+      },
+    };
+    try {
+      //Successful response
+      const response = await axios.get(
+        "http://localhost:8000/api/list",
+        config
+      );
+      const data = response.data;
+      const lastData = response.data[data.length - 1];
+      setFileData(lastData);
+    } catch (error) {
+      //Failed to respond
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getList();
+  }, []);
+
   return (
     <div>
       {another ? (
