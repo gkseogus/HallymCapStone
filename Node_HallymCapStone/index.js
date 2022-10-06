@@ -6,6 +6,7 @@ const mysql = require("mysql");
 const PORT = process.env.port || 8000;
 const ROOT_ID = process.env.root_id;
 const ROOT_PASSWORD = process.env.root_password;
+const bodyParser = require("body-parser");
 
 const db = mysql.createPool({
   host: "localhost",
@@ -14,24 +15,25 @@ const db = mysql.createPool({
   database: "downFile",
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: true }));
 
 // api
-app.get("/api/fileList", (req, res) => {
-  const sqlQuery = "SELECT *FROM filetable;";
+app.get("/api/list", (req, res) => {
+  const sqlQuery = "SELECT *FROM FILETABLE;";
   db.query(sqlQuery, (err, result) => {
     res.send(result);
   });
 });
 
-app.post("/api/fileinsert", (req, res) => {
+app.post("/api/insert", (req, res) => {
+  console.log(req.body);
   var file = req.body.file;
 
-  const sqlQuery = "INSERT INTO filetable (DOWNFILE) VALUES (?);";
+  const sqlQuery = "INSERT INTO FILETABLE (DOWNFILE) VALUES (?);";
   db.query(sqlQuery, [file], (err, result) => {
     res.send(result);
-    console.log(result);
-    console.log("FILE", file);
   });
 });
 
