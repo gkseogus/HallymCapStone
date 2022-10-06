@@ -11,6 +11,7 @@ const Contain = styled.div`
   left: 50%;
   margin-top: 80px;
   margin-left: -597px;
+  filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
 `;
 
 const Circle = styled.div`
@@ -93,7 +94,7 @@ const InputContain = styled.div`
   width: 400;
   height: 184px;
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #ffffff;
@@ -122,7 +123,12 @@ const SelectButton = styled.button`
   height: 65px;
   border: 0;
   outline: 0;
-  top: 80%;
+  top: 40%;
+  left: 26%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 15px 30px;
   position: relative;
   border-radius: 100px;
   background-color: #1a73e8;
@@ -185,11 +191,11 @@ const Main = (props) => {
               <Inputprops {...getInputProps()} />
               <InputText>Dropdown your video or Select File</InputText>
               <InputLogoContain src={DropIcon} alt="dropIcon" />
+              <SelectButton>
+                <SelectText onClick={open}>Select File </SelectText>
+              </SelectButton>
             </InputContain>
           </DropzoneContain>
-          <SelectButton>
-            <SelectText onClick={open}>Select File </SelectText>
-          </SelectButton>
         </Contain>
       )}
     </div>
