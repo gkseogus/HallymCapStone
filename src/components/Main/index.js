@@ -11,7 +11,6 @@ const Contain = styled.div`
   left: 50%;
   margin-top: 80px;
   margin-left: -597px;
-  background-color: #f0f0f0;
 `;
 
 const Circle = styled.div`
