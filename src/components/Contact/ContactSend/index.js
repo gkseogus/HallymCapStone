@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import "./send.css"
+import { useForm } from 'react-hook-form';
 import styled from "styled-components";
 
 const FormWrap = styled.div`
@@ -35,6 +35,9 @@ const FormTitle = styled.p`
 `;
 
 const FormEmail = styled.input`
+    position: relative;
+    margin: auto;
+    top: 165px;
     box-sizing: border-box;
 
     /* Auto layout */
@@ -48,7 +51,7 @@ const FormEmail = styled.input`
 
     width: 300px;
     height: 37px;
-
+    border : none;
     border-bottom: 3px solid #202124;
 
     /* Inside auto layout */
@@ -63,11 +66,12 @@ const FormEmail = styled.input`
     font-size: 14px;
     line-height: 17px;
     /* identical to box height */
+    background-color: #E8F2FF;
 
     text-align: center;
 
     color: #202124;
-
+    position: relative;
 
     ::placeholder{
         font-family: 'Pretendard';
@@ -230,7 +234,7 @@ const FormBtnContent = styled.p`
     margin-top: -3px;
 `;
 
-const ContactSend = () => {
+const ContactSend = ({ changeInput, inputData, onSaveButtonClick, resetForm, onSearchButtonClick }) => {
 
     const [Selected, setSelected] = useState("");
     var docUrl = "";
@@ -264,6 +268,11 @@ const ContactSend = () => {
     };
 
 
+
+    function handleSubmit(e){
+        alert('성공적으로 메일을 보냈습니다.');
+    }
+
     return(
         <FormWrap>
             <div style={{display:"none"}}>
@@ -282,12 +291,10 @@ const ContactSend = () => {
 
                 }
             </div>
-            <Form method="post" action={docUrl}>
+            <Form method="post" action={docUrl}  target = "iframe1" onSubmit={handleSubmit}>
                 <FormTitle>Send a Message</FormTitle>
-                <div>
                     <div>
-                        <FormEmail className={`inputTest==true ? view : hide`} type="email" id="email" name="email" placeholder="Your e-mail address" onChange={inputTest} />
-                    </div>
+                        <FormEmail type="email" id="email" name="email" placeholder="Your e-mail address" onChange={inputTest} />
                     <div>
                         <FormDevEmail type="text" id="usr" name="username" placeholder="Select an address to send to" onChange={handleSelect} value={Selected}>
                             <FormOption>Select an address to send to</FormOption>
@@ -309,7 +316,7 @@ const ContactSend = () => {
                     <FormBtnContent>Send</FormBtnContent>
                 </FormBtn>
             </Form>
-            
+            <iframe id="iframe1" name="iframe1" style={{display:"none"}} />
         </FormWrap>  
         
     )
