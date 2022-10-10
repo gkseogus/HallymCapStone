@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled, { css } from "styled-components";
+import axios from "axios";
 import SubtractIcon from "../Img/subtractIcon.svg";
 import Main from "../index";
 import MainAnalyze from "../MainAnalyze";
@@ -11,7 +12,6 @@ const Contain = styled.div`
   left: 50%;
   margin-top: 80px;
   margin-left: -597px;
-  background-color: #f0f0f0;
 `;
 
 const Circle = styled.div`
@@ -82,13 +82,15 @@ const Circle = styled.div`
 const FileNameContain = styled.div`
   width: 905px;
   height: 60px;
-  border: 3px solid #444444;
-  border-radius: 10px;
+  order: 0;
+  flex-grow: 0;
   stroke-width: 10px;
   margin-top: 360px;
   margin-left: 144px;
   position: absolute;
-  background-color: #ffffff;
+  background: #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
   z-index: 1;
 `;
 
@@ -145,36 +147,50 @@ const AnalyzeButton = styled.button`
 `;
 
 const ButtonText = styled.p`
-  margin-top: 12px;
-  font-family: "Noto Sans CJK KR";
+  margin-top: 15px;
+  font-family: "Pretendard";
   font-style: normal;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 41px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
   text-align: center;
   color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
 
 const MainAgain = (props) => {
   const [change, setChange] = useState(false);
   const [changeAnal, setChangeAnal] = useState(false);
+  const downFile = props.files;
 
-  const SelectAgain = useCallback(() => {
+  const chooseAgain = useCallback(() => {
     setChange(!change);
     setChangeAnal(changeAnal);
   }, [change, changeAnal]);
 
-  const SelectAnalyze = useCallback(() => {
-    setChange(change);
-    setChangeAnal(!changeAnal);
-  }, [change, changeAnal]);
+  const SelectAnalyze = async () => {
+    try {
+      console.log(downFile);
+      //Successful response
+      await axios.post("http://localhost:8000/api/insert", {
+        file: downFile[0].key,
+      });
+      setChange(change);
+      setChangeAnal(!changeAnal);
+    } catch (error) {
+      //Failed to respond
+      console.log("write error", error);
+    }
+  };
 
   return (
     <div>
       {change && !changeAnal ? (
         <Main />
       ) : !change && changeAnal ? (
-        <MainAnalyze />
+        <MainAnalyze files={props.files} />
       ) : !change && !changeAnal ? (
         <Contain>
           <Circle />
@@ -188,12 +204,12 @@ const MainAgain = (props) => {
             <SubtractContain
               src={SubtractIcon}
               alt="subtract button"
-              onClick={SelectAgain}
+              onClick={chooseAgain}
             />
           </FileNameContain>
           <BtnContain>
             <SelectButton>
-              <ButtonText onClick={SelectAgain}>Select Again</ButtonText>
+              <ButtonText onClick={chooseAgain}>Choose Again</ButtonText>
             </SelectButton>
             <AnalyzeButton>
               <ButtonText onClick={SelectAnalyze}>Analyze video</ButtonText>
