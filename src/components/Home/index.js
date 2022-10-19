@@ -1,6 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import Slider2 from "react-slick";
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+import HomeImg1 from "../../wolf.svg";
+import HomeImg2 from "../../eye.svg";
+import HomeImg3 from "../../people.svg";
+
+
+import HomeImg2_1 from "../../man.svg";
+import HomeImg2_2 from "../../girl.svg";
+import HomeImg2_3 from "../../phone.svg";
+
+import HomeImg3_1 from "../../eyes.svg";
+import HomeImg3_2 from "../../input.svg";
+import HomeImg3_3 from "../../graph.svg";
+import HomeImg3_4 from "../../whkvy.png";
+
 
 const Home1 = styled.div`
   position: relative;
@@ -14,36 +34,41 @@ const Home1 = styled.div`
 
 const Home1P1 = styled.div`
   position: absolute;
-  width: 550px;
-  height: 96px;
-  left: 82px;
-  top: 58px;
-
-  font-family: "Pretendard";
+  text-align:left;
+  left: 8.38%;
+  right: 31.83%;
+  top: 10.71%;
+  bottom: 76.9%;
+  
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: start;
+  font-size: 36px;
+  line-height: 52px;
+  /* or 144% */
+  
+  
   color: #000000;
 `;
 
 const Home1P2 = styled.div`
   position: absolute;
-  width: 430px;
-  height: 33px;
-  left: 82px;
-  top: 184px;
+  left: 8.38%;
+  right: 38.86%;
+  top: 25.24%;
+  bottom: 70.48%;
 
-  font-family: "Pretendard";
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 33px;
-  text-align: start;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height */
+
 
   color: #000000;
-`;
+  `;
+
 const NavStartBtn = styled(Link)`
   display: flex;
   flex-direction: row;
@@ -55,8 +80,9 @@ const NavStartBtn = styled(Link)`
   position: absolute;
   width: 205px;
   height: 65px;
-  right: 60px;
-  bottom: 120px;
+ 
+  left: 8.3%;
+  bottom: 7.14%;
 
   background: #1A73E8;
   box-shadow: 3px 5px 10px rgba(26, 115, 232, 0.15);
@@ -73,355 +99,393 @@ const NavStartBtn = styled(Link)`
 `;
 
 const Home2 = styled.div`
-  display: flex;
   position: relative;
   width: 1194px;
-  height: 642px;
+  height: 793px;
   left: 50%;
   margin-left: -597px;
-`;
-
-const Home2Left = styled.div`
-  position: relative;
-  width: 875.45px;
-  height: 642px;
-  left: calc(50% - 159.27px);
-  margin-left: -437.7px;
-  background-color: #999999;
-`;
-const Home2Right = styled.div`
-  position: relative;
-  width: 318.55px;
-  height: 642px;
-  left: 50%;
-  margin-left: -159.27px;
-  background-color: #d9d9d9;
 `;
 
 const Home2P1 = styled.p`
   position: absolute;
   width: 450px;
   height: 76px;
-  right: 0;
-  top: 239px;
+  top: 100px;
+  left:50%;
+  margin:0;
+  margin-left:-225px;
 
+  text-align:center;
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
-  text-align: right;
 
   color: #000000;
 `;
 
-const Home2P2 = styled.p`
-  position: absolute;
-  width: 370px;
-  height: 29px;
-  right: 0;
-  top: 353px;
-
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-  /* identical to box height */
-
-  text-align: right;
-
-  color: #000000;
-`;
-
-const Home2P3 = styled.p`
-  position: absolute;
-  width: 470px;
-  height: 116px;
-  right: 0;
-  bottom: 60px;
-
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: right;
-
-  color: #000000;
+const Home2Div1 = styled.div`
+  position: relative;
+  width: 846px;
+  height: 480px;
+  left:50%;
+  top:20%;
+  margin-left:-423px;
+  background-color:gray;
 `;
 
 const Home3 = styled.div`
   position: relative;
   width: 1194px;
-  height: 896px;
+  height: 869px;
   left: 50%;
   margin-left: -597px;
-  background-color: #eeeeee;
+  background: #FFFFFF;`;
+
+const Home3Gra = styled.div`
+  position: relative;
+  width: 869px;
+  height: 15px;
+  left: -428px;
+  top: 423px;
+  background: linear-gradient(90deg,rgba(6,135,232,0) 0%,#0687E8 25%,#0687E8 72.92%,rgba(6,135,232,0) 100%);
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
 `;
 
-const Home3Img = styled.div`
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  left: 110px;
-  top: 150px;
+const Home3Img = styled.img`
+  position: relative;
   background-color: rgb(199, 199, 199);
 `;
 
 const Home3P1 = styled.div`
   position: absolute;
-  width: 620px;
-  height: 96px;
-  left: 60px;
-  top: 50px;
+  width: 442px;
+  height: 62px;
+  left:50%;
+  margin-left: -221px;
+  top: 90px;
 
-  font-family: "Pretendard";
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 700;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: start;
+  font-size: 42px;
+  line-height: 62px;
+  text-align: center;
 
   color: #000000;
 `;
 
-const Home3ImgWrap = styled.div`
-  position: absolute;
-  width: 420px;
-  height: 500px;
-  left: 169px;
-  top: 266px;
+const Slider2P1 = styled.p`
+  width: 59px;
+  height: 27px;
 
-  background: #d9d9d9;
-  border-radius: 20px;
-`;
-
-const Home3P2 = styled.p`
-  position: absolute;
-  width: 430px;
-  height: 38px;
-  left: 649px;
-  top: 302px;
-
-  font-family: "Pretendard";
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-  text-align: start;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
 
   color: #000000;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
 
-const Home3P3 = styled.p`
-  position: absolute;
-  width: 447px;
-  height: 116px;
-  left: 649px;
-  top: 400px;
+const Slider2P2 = styled.p`
+  padding-top: 14px;
+  width: 400px;
+  height: 53px;
 
-  font-family: "Pretendard";
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 53px;
+
+  color: #000000;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`;
+
+const Slider2P3 = styled.p`
+  width: 476px;
+  height: 144px;
+
+  padding-top: 36px;
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  line-height: 29px;
-  text-align: start;
+  line-height: 36px;
 
-  color: #000000;
-`;
+  color: #202124;
 
-const Home3Bottom = styled.div`
-  display: flex;
-  position: absolute;
-  width: 1194px;
-  height: 20px;
-  left: 50%;
-  margin-left: -597px;
-  bottom: 0;
-`;
-const Home3Bottom1 = styled.div`
-  position: relative;
-  width: 299px;
-  height: 20px;
-  left: 0;
-  background-color: #444444;
-`;
-const Home3Bottom2 = styled.div`
-  position: relative;
-  width: 298.5px;
-  height: 20px;
-  background-color: #aaaaaa;
-`;
-const Home3Bottom3 = styled.div`
-  position: relative;
-  width: 596.5px;
-  height: 20px;
-  right: 0;
-  background-color: #444444;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
 `;
 
 const Home4 = styled.div`
   position: relative;
   width: 1194px;
-  height: 2160px;
+  height: 2820px;
   background-color: #d9d9d9;
   left: 50%;
   margin-left: -597px;
 `;
 
 const Home4P1 = styled.p`
-  position: absolute;
-  width: 409px;
-  height: 48px;
   left: 58px;
-  top: 46px;
+  top: 66px;
 
-  font-family: "Pretendard";
+  position: absolute;
+  width: 422px;
+  height: 59px;
+  
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
-  line-height: 48px;
-  /* identical to box height */
+  line-height: 59px;
+  
   color: #000000;
 `;
-const Home4Div1 = styled.div`
+const Home4Img1 = styled.img`
   position: absolute;
-  width: 510.5px;
-  height: 510px;
+  width: 510px;
+  height: 614px;
   left: 72px;
   top: 232px;
-  background-color: #eeeeee;
 `;
 const Home4P2 = styled.p`
   position: absolute;
-  width: 430px;
-  height: 38px;
-  left: 642px;
-  top: 302px;
+  left: 587px;
+  top: 200px;
+ 
+  width: 454px;
+  height: 50px;
 
-  font-family: "Pretendard";
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-  text-align: start;
-
+  font-size: 34px;
+  line-height: 50px;
+  
   color: #000000;
 `;
 const Home4P3 = styled.p`
   position: absolute;
-  width: 430px;
+  width: 410px;
   height: 38px;
   left: 642px;
-  top: 400px;
-
-  font-family: "Pretendard";
+  top: 300px;
+  
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 24px;
-  line-height: 29px;
-
+  line-height: 36px;
+  
   color: #000000;
-
+  
   text-align: start;
 `;
 const Home4P4 = styled.p`
   position: absolute;
-  width: 430px;
+  width: 565px;
   height: 38px;
-  left: 144px;
+  left: 72px;
   top: 923px;
-
-  font-family: "Pretendard";
+  
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-  text-align: right;
-  text-align: end;
-
+  font-size: 34px;
+  line-height: 50px;
+  
   color: #000000;
+  
+`;
+const Home4Img2 = styled.img`
+  position: absolute;
+  width: 1050px;
+  height: 405.1px;
+  left: 72px;
+  top: 1040px;
 `;
 const Home4P5 = styled.p`
   position: absolute;
-  width: 430px;
-  height: 38px;
-  left: 105px;
-  top: 1021px;
-
-  font-family: "Pretendard";
+  left: 72px;
+  top: 1440px;
+ 
+  width: 1050px;
+  height: 216px;
+  text-align:start;
+  font-family: 'Noto Sans CJK KR';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 24px;
-  line-height: 29px;
-  text-align: right;
-
+  line-height: 36px;
+  
   color: #000000;
 `;
-const Home4P6 = styled.p`
-  position: absolute;
-  width: 430px;
-  height: 38px;
-  left: 105px;
-  top: 1197px;
 
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-  text-align: right;
-
-  color: #000000;
-
-  text-align: end;
-`;
-const Home4Div2 = styled.div`
-  position: absolute;
-  width: 510px;
-  height: 640px;
-  left: 612px;
-  top: 892px;
-  background-color: #eeeeee;
-`;
-const Home4P7 = styled.p`
-  position: absolute;
-  width: 430px;
-  height: 38px;
-  left: 102px;
-  top: 1603px;
-
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 38px;
-
-  color: #000000;
-`;
-const Home4Div3 = styled.div`
+const Home4Img3 = styled.img`
   position: absolute;
   width: 987px;
   height: 400px;
-  left: 105px;
-  bottom: 59px;
-  background-color: #eeeeee;
+  left: -170px;
+  top: 1740px;
+`;
+const Home4Img4 = styled.img`
+  position: absolute;
+  width: 493px;
+  height: 380px;
+  left: 620px;
+  top: 1750px;
 `;
 
+const Home4P6 = styled.p`
+  position: absolute;
+  width: 1050px;
+  height: 166px;
+  left: 72px;
+  top: 2200px;
+
+  text-align:start;
+
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 43px;
+
+  color: #000000;
+`;
+
+const Home4P7 = styled.p`
+  position: absolute;
+  width: 622px;
+  height: 50px;
+  left: 72px;
+  top: 2540px;
+
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 50px;
+
+  color: #000000;
+`;
+
+const Home4P8 = styled.li`
+  position: absolute;
+  width: 93px;
+  height: 72px;
+  margin-left: 72px;
+  top: 2650px;
+
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+
+  color: #000000;
+`;
+
+const Home4P9 = styled.li`
+  position: absolute;
+  width: 93px;
+  height: 72px;
+  margin-left: 72px;
+  top: 2700px;
+
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+
+  color: #000000;
+`;
+
+const SampleNextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "black", padding: "12px 12px 9px"}}
+      onClick={onClick}
+    />
+  );
+}
+
 const Home = () => {
+
+  const settings = {
+      fade:true,
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 2000,
+      autoplaySpeed: 20000,
+      cssEase: "linear"
+  };
+
+  const twoSettings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    touchMove: false,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SampleNextArrow />
+  }
   const ScrollTop = () => {
     window.scrollTo(0, 0);
   };
 
   return (
     <div>
+      
       <Home1>
         <div>
+        <Slider {...settings}>
+          <div>
+            <img src={HomeImg1} style={{opacity:"0.9"}} />
+          </div>
+          <div>
+            <img src={HomeImg2} style={{opacity:"0.7"}}/>
+          </div>
+          <div>
+            <img src={HomeImg3} style={{opacity:"0.7"}}/>
+          </div>
+        </Slider>
           <Home1P1>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Without special equipment,<br/> Simplest and most accurate eye tracking
           </Home1P1>
-          <Home1P2>Mattis ipsum purus ante in ac.</Home1P2>
+          <Home1P2>Use the desktop and laptop eye tracking service at home</Home1P2>
         </div>
         <NavStartBtn onClick={ScrollTop} to="/main">
           Get Started
@@ -429,65 +493,96 @@ const Home = () => {
       </Home1>
 
       <Home2>
-        <Home2Left />
-        <Home2Right>
           <Home2P1>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Demonstration Video
           </Home2P1>
-          <Home2P2>Mattis ipsum purus ante in ac.</Home2P2>
-          <Home2P3>
-            Orci amet lectus adipiscing venenatis, tempor non nisl mi
-            condimentum. Non, magna eget velit, justo, iaculis. Quam morbi massa
-            ipsum amet interdum
-          </Home2P3>
-        </Home2Right>
+          <Home2Div1/>
+          
       </Home2>
+
       <Home3>
+        <Home3Gra/>
         <Home3P1>
-          Recommended explanation according to the purpose of use
+          Try Using It Like This!
         </Home3P1>
-        <Home3ImgWrap>
-          <Home3Img>img 파일</Home3Img>
-        </Home3ImgWrap>
-        <Home3P2>Lorem ipsum dolor sit amet</Home3P2>
-        <Home3P3>
-          Orci amet lectus adipiscing venenatis, tempor non nisl mi condimentum.
-          Non, magna eget velit, justo, iaculis. Quam morbi massa ipsum amet
-          interdum
-        </Home3P3>
-        <Home3Bottom>
-          <Home3Bottom1 />
-          <Home3Bottom2 />
-          <Home3Bottom3 />
-        </Home3Bottom>
+        <Slider2 {...twoSettings} style={{position:"relative", width:"1030px", height:"568px", left:"50%", marginLeft:"-515px", top:"212px", padding:"103px 92px"}}>
+          <div style={{width:"100%", height:"100%"}}>
+              <Home3Img src={HomeImg2_2}/>
+              <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
+                <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 1</Slider2P1>
+                <Slider2P2 style={{textAlign:"left", margin:"0"}}>Text</Slider2P2>
+                <Slider2P3 style={{textAlign:"left", margin:"0"}}>It can be used for consumer psychology marketing with effective product placement by identifying the location where the gaze stays.</Slider2P3>
+              </div>
+          </div>
+          <div style={{width:"100%", height:"100%"}}>
+              <Home3Img src={HomeImg2_1}/>
+              <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
+                <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 1</Slider2P1>
+                <Slider2P2 style={{textAlign:"left", margin:"0"}}>Businessman</Slider2P2>
+                <Slider2P3 style={{textAlign:"left", margin:"0"}}>It can be used for consumer psychology marketing with effective product placement by identifying the location where the gaze stays.</Slider2P3>
+              </div>
+          </div>
+          <div style={{width:"100%", height:"100%"}}>
+              <Home3Img src={HomeImg2_2}/>
+              <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
+                <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 2</Slider2P1>
+                <Slider2P2 style={{textAlign:"left", margin:"0"}}>Educator & Researcher</Slider2P2>
+                <Slider2P3 style={{textAlign:"left", margin:"0"}}>It can be a diagnostic tool that identifies visual attention to specific characters or words, and identifies math skills or &nbsp; &nbsp; dyslexia by revealing reading patterns.</Slider2P3>
+              </div>
+          </div>
+          <div style={{width:"100%", height:"100%"}}>
+              <Home3Img src={HomeImg2_3}/>
+              <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
+                <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 3</Slider2P1>
+                <Slider2P2 style={{textAlign:"left", margin:"0"}}>Individual</Slider2P2>
+                <Slider2P3 style={{textAlign:"left", margin:"0"}}>It helps you clearly understand your preferences, such as colors, objects, and the first thing you see when you see people.</Slider2P3>
+              </div>
+          </div>
+        </Slider2>
+        
+        
       </Home3>
 
       <Home4>
         <Home4P1>Technical Description</Home4P1>
 
-        <Home4Div1></Home4Div1>
-        <Home4P2>Lorem ipsum dolor sit amet</Home4P2>
+        <Home4Img1 src={HomeImg3_1}></Home4Img1>
+        <Home4P2>What is eye tracking?</Home4P2>
         <Home4P3>
-          Orci amet lectus adipiscing venenatis, tempor non nisl mi condimentum.
-          Non, magna eget velit, justo, iaculis. Quam morbi massa ipsum amet
-          interdum
+        Eye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. 
+        <br/><br/>
+        An eye tracker is a device for measuring eye positions and eye movement. 
+        <br/><br/>
+        Eye trackers are used in research &nbsp; on the visual system, in psychology, in psycholinguistics, marketing, as &nbsp; an input device for human-computer interaction, and in product design. 
         </Home4P3>
 
-        <Home4P4>Lorem ipsum dolor sit amet</Home4P4>
+        <Home4P4>Accurate analysis with CNN Model</Home4P4>
+        <Home4Img2 src={HomeImg3_2}></Home4Img2>
         <Home4P5>
-          Orci amet lectus adipiscing venenatis, tempor non nisl mi condimentum.
-          Non, magna eget velit, justo, iaculis. Quam morbi massa ipsum amet
-          interdum
+          &nbsp;The convolutional Neural Network CNN works by getting an image, designating it some weightage 
+          based on the different objects of the image, and then distinguishing them from each other. 
+          One of the main capabilities of CNN is that it applies primitive methods for &nbsp; training its classifiers, 
+          which makes it good enough to learn the characteristics of the target object.
         </Home4P5>
-        <Home4P6>
-          Orci amet lectus adipiscing venenatis, tempor non nisl mi condimentum.
-          Non, magna eget velit, justo, iaculis. Quam morbi massa ipsum amet
-          interdum
-        </Home4P6>
-        <Home4Div2></Home4Div2>
 
-        <Home4P7>Lorem ipsum dolor sit amet</Home4P7>
-        <Home4Div3></Home4Div3>
+        {/* <Home4P7>Lorem ipsum dolor sit amet</Home4P7> */}
+        <Home4Img3 src={HomeImg3_3}></Home4Img3>
+        <Home4Img4 src={HomeImg3_4}></Home4Img4>
+
+        <Home4P6>
+        &nbsp;Eye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. 
+        <br/><br/>
+        &nbsp;There is an error of about 2.5cm on the tablet. It's about 2.1cm when it's corrected.
+        </Home4P6>
+        <Home4P7>
+        More Information About Eye Tracking
+        </Home4P7>
+        <Home4P8>
+          link1
+        </Home4P8>
+        <Home4P9>
+          link2
+        </Home4P9>
       </Home4>
     </div>
   );
