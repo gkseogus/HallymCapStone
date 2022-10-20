@@ -21,6 +21,8 @@ import HomeImg3_2 from "../../input.svg";
 import HomeImg3_3 from "../../graph.svg";
 import HomeImg3_4 from "../../whkvy.png";
 
+import leftBtn from "../../leftBtn.svg";
+import rightBtn from "../../rightBtn.svg";
 
 const Home1 = styled.div`
   position: relative;
@@ -428,6 +430,37 @@ const Home4P9 = styled.li`
   color: #000000;
 `;
 
+//react-slick-styled-components
+const StyledSlider = styled(Slider)`
+  height: 100%;
+  width: 100%;
+  position: relative;
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }`;
+
+const Pre = styled.div`
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 3%;
+  z-index: 3;
+  margin-left:-48px;
+  margin-top:-36px;
+`;
+
+const NextTo = styled.div`
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 3%;
+  z-index: 3;
+  margin-top:-36px;
+  margin-right:-10px;
+`;
+
 const SampleNextArrow = (props) => {
   const { className, style, onClick } = props;
   return (
@@ -459,8 +492,16 @@ const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     touchMove: false,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SampleNextArrow />
+    nextArrow: (
+      <NextTo>
+        <img src={rightBtn}/>
+      </NextTo>
+    ),
+    prevArrow: (
+      <Pre>
+        <img src={leftBtn}/>
+      </Pre>
+    )
   }
   const ScrollTop = () => {
     window.scrollTo(0, 0);
@@ -507,15 +548,15 @@ const Home = () => {
         </Home3P1>
         <Slider2 {...twoSettings} style={{position:"relative", width:"1030px", height:"568px", left:"50%", marginLeft:"-515px", top:"212px", padding:"103px 92px"}}>
           <div style={{width:"100%", height:"100%"}}>
-              <Home3Img src={HomeImg2_2}/>
-              <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
+              <Home3Img src={HomeImg2_2} />
+              <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px", paddingRight:"20px"}}>
                 <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 1</Slider2P1>
                 <Slider2P2 style={{textAlign:"left", margin:"0"}}>Text</Slider2P2>
                 <Slider2P3 style={{textAlign:"left", margin:"0"}}>It can be used for consumer psychology marketing with effective product placement by identifying the location where the gaze stays.</Slider2P3>
               </div>
           </div>
           <div style={{width:"100%", height:"100%"}}>
-              <Home3Img src={HomeImg2_1}/>
+              <Home3Img src={HomeImg2_1} styled={{marginLeft:"3px"}}/>
               <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
                 <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 1</Slider2P1>
                 <Slider2P2 style={{textAlign:"left", margin:"0"}}>Businessman</Slider2P2>
@@ -523,7 +564,7 @@ const Home = () => {
               </div>
           </div>
           <div style={{width:"100%", height:"100%"}}>
-              <Home3Img src={HomeImg2_2}/>
+              <Home3Img src={HomeImg2_2} styled={{marginLeft:"3px"}}/>
               <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
                 <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 2</Slider2P1>
                 <Slider2P2 style={{textAlign:"left", margin:"0"}}>Educator & Researcher</Slider2P2>
