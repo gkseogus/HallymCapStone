@@ -1,0 +1,57 @@
+.activeBtn{
+    display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 12px 24px;
+  gap: 10px;
+
+  position: relative;
+  width: 115px;
+  height: 57px;
+
+  top: 318px;
+  margin: auto;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 33px;
+  text-align: center;
+
+  color: #ffffff;
+
+  box-shadow: 3px 5px 10px rgba(32, 33, 36, 0.15);
+  border-radius: 100px;
+  border: none;
+    background-color: red;
+}
+.unactiveBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 24px;
+    gap: 10px;
+  
+    position: relative;
+    width: 115px;
+    height: 57px;
+  
+    top: 318px;
+    margin: auto;
+  
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+  
+    color: #ffffff;
+  
+    background: #cccccc;
+    box-shadow: 3px 5px 10px rgba(32, 33, 36, 0.15);
+    border-radius: 100px;
+    border: none;
+    
+}
