@@ -248,7 +248,7 @@ const Home4 = styled.div`
   position: relative;
   width: 1194px;
   height: 2820px;
-  background-color: #d9d9d9;
+  background-color: white;
   left: 50%;
   margin-left: -597px;
 `;
@@ -278,51 +278,75 @@ const Home4Img1 = styled.img`
 `;
 const Home4P2 = styled.p`
   position: absolute;
-  left: 587px;
-  top: 200px;
+  left: 637px;
+  top: 230px;
  
-  width: 454px;
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 50px;
+  
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 40px;
+  gap: 10px;
+
+  position: absolute;
+  width: 351px;
+  height: 51px;
+
+  background: #1A73E8;
+  color: white;
+  border-radius: 20px;
+  margin:0;
+`;
+const Home4P3 = styled.p`
+  position: absolute;
+  left: 642px;
+  top: 340px;
+  
+  width: 419px;
+  height: 407px;
+
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 31px;
+
+  color: #000000;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  text-align:start;
+`;
+const Home4P4 = styled.p`
+  position: absolute;
+  width: 343px;
   height: 50px;
+  left: 72px;
+  top: 923px;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px 0px;
+  gap: 10px;
 
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 700;
   font-size: 34px;
   line-height: 50px;
-  
-  color: #000000;
-`;
-const Home4P3 = styled.p`
-  position: absolute;
-  width: 410px;
-  height: 38px;
-  left: 642px;
-  top: 300px;
-  
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 36px;
-  
-  color: #000000;
-  
-  text-align: start;
-`;
-const Home4P4 = styled.p`
-  position: absolute;
-  width: 565px;
-  height: 38px;
-  left: 72px;
-  top: 923px;
-  
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 50px;
-  
-  color: #000000;
+
+  background: #1A73E8;
+  border-radius: 20px;
+  color: white;
   
 `;
 const Home4Img2 = styled.img`
@@ -330,12 +354,12 @@ const Home4Img2 = styled.img`
   width: 1050px;
   height: 405.1px;
   left: 72px;
-  top: 1040px;
+  top: 1070px;
 `;
 const Home4P5 = styled.p`
   position: absolute;
   left: 72px;
-  top: 1440px;
+  top: 1510px;
  
   width: 1050px;
   height: 216px;
@@ -343,7 +367,7 @@ const Home4P5 = styled.p`
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 36px;
   
   color: #000000;
@@ -354,14 +378,14 @@ const Home4Img3 = styled.img`
   width: 987px;
   height: 400px;
   left: -170px;
-  top: 1740px;
+  top: 1700px;
 `;
 const Home4Img4 = styled.img`
   position: absolute;
   width: 493px;
   height: 380px;
   left: 620px;
-  top: 1750px;
+  top: 1710px;
 `;
 
 const Home4P6 = styled.p`
@@ -376,24 +400,26 @@ const Home4P6 = styled.p`
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 400;
-  font-size: 32px;
+  font-size: 25px;
   line-height: 43px;
 
   color: #000000;
 `;
 
-const Home4P7 = styled.p`
+const Home4P7 = styled.a`
   position: absolute;
   width: 622px;
   height: 50px;
-  left: 72px;
-  top: 2540px;
+  bottom: 150px;
+  left: 0px;
 
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 50px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height */
+
 
   color: #000000;
 `;
@@ -475,6 +501,7 @@ const SampleNextArrow = (props) => {
 const Home = () => {
 
   const settings = {
+      draggable:false,
       fade:true,
       dots: false,
       infinite: true,
@@ -547,14 +574,7 @@ const Home = () => {
           Try Using It Like This!
         </Home3P1>
         <Slider2 {...twoSettings} style={{position:"relative", width:"1030px", height:"568px", left:"50%", marginLeft:"-515px", top:"212px", padding:"103px 92px"}}>
-          <div style={{width:"100%", height:"100%"}}>
-              <Home3Img src={HomeImg2_2} />
-              <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px", paddingRight:"20px"}}>
-                <Slider2P1 style={{textAlign:"left", margin:"0"}}>CASE 1</Slider2P1>
-                <Slider2P2 style={{textAlign:"left", margin:"0"}}>Text</Slider2P2>
-                <Slider2P3 style={{textAlign:"left", margin:"0"}}>It can be used for consumer psychology marketing with effective product placement by identifying the location where the gaze stays.</Slider2P3>
-              </div>
-          </div>
+          
           <div style={{width:"100%", height:"100%"}}>
               <Home3Img src={HomeImg2_1} styled={{marginLeft:"3px"}}/>
               <div style={{position:"relative", width:"476px", height:"263px", top:"-350px", left:"400px"}}>
@@ -590,20 +610,18 @@ const Home = () => {
         <Home4Img1 src={HomeImg3_1}></Home4Img1>
         <Home4P2>What is eye tracking?</Home4P2>
         <Home4P3>
-        Eye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. 
+        &nbsp;Eye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. 
         <br/><br/>
         An eye tracker is a device for measuring eye positions and eye movement. 
         <br/><br/>
         Eye trackers are used in research &nbsp; on the visual system, in psychology, in psycholinguistics, marketing, as &nbsp; an input device for human-computer interaction, and in product design. 
         </Home4P3>
 
-        <Home4P4>Accurate analysis with CNN Model</Home4P4>
+        <Home4P4>How to analyze</Home4P4>
         <Home4Img2 src={HomeImg3_2}></Home4Img2>
         <Home4P5>
-          &nbsp;The convolutional Neural Network CNN works by getting an image, designating it some weightage 
-          based on the different objects of the image, and then distinguishing them from each other. 
-          One of the main capabilities of CNN is that it applies primitive methods for &nbsp; training its classifiers, 
-          which makes it good enough to learn the characteristics of the target object.
+          &nbsp;  Crop the right eye and left eye in the face frame and divide them into separate layers for analysis. 
+          Then, after dividing the face frame into grid units, we find the coordinates of the right and left eyes to find out where the user is looking.
         </Home4P5>
 
         {/* <Home4P7>Lorem ipsum dolor sit amet</Home4P7> */}
@@ -615,15 +633,10 @@ const Home = () => {
         <br/><br/>
         &nbsp;There is an error of about 2.5cm on the tablet. It's about 2.1cm when it's corrected.
         </Home4P6>
-        <Home4P7>
-        More Information About Eye Tracking
+        <Home4P7 href="https://gazecapture.csail.mit.edu/">
+          Source - https://gazecapture.csail.mit.edu/        
         </Home4P7>
-        <Home4P8>
-          link1
-        </Home4P8>
-        <Home4P9>
-          link2
-        </Home4P9>
+        
       </Home4>
     </div>
   );
