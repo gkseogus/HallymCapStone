@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import "./indexStyle.css";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
@@ -198,37 +199,37 @@ const FormOption = styled.option`
 
   background: #ffffff;
 `;
-const FormBtn = styled.button`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 12px 24px;
-  gap: 10px;
+// const FormBtn = styled.button`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: flex-start;
+//   padding: 12px 24px;
+//   gap: 10px;
 
-  position: relative;
-  width: 115px;
-  height: 57px;
+//   position: relative;
+//   width: 115px;
+//   height: 57px;
 
-  top: 318px;
-  margin: auto;
+//   top: 318px;
+//   margin: auto;
 
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 33px;
-  text-align: center;
+//   font-family: "Pretendard";
+//   font-style: normal;
+//   font-weight: 600;
+//   font-size: 28px;
+//   line-height: 33px;
+//   text-align: center;
 
-  color: #ffffff;
+//   color: #ffffff;
 
-  background: #cccccc;
-  box-shadow: 3px 5px 10px rgba(32, 33, 36, 0.15);
-  border-radius: 100px;
-  border: none;
-  &:hover {
-    cursor: pointer;
-  }
-`;
+//   background: #cccccc;
+//   box-shadow: 3px 5px 10px rgba(32, 33, 36, 0.15);
+//   border-radius: 100px;
+//   border: none;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
 
 const FormBtnContent = styled.p`
   margin-top: -3px;
@@ -264,20 +265,64 @@ const ContactSend = ({
     "https://script.google.com/macros/s/AKfycbwdepghXyWZt875TsgMXJmPlM1zckVKjuZdEtiBr8wLNRgOOW-k06W1vVAkNCa-YyUr/exec",
   ];
 
-  const handleSelect = (e) => {
-    setSelected(e.target.value);
-  };
+  
+  //맨 위 이메일
+  //--맨위 이메일 state
+  const [inputEmail, setInputEmail] = useState(false);
+  const [inputEmailValue, setInputEmailValue] = useState("");
 
-  const [inputValue, setInputValue] = useState(false);
-  const inputTest = (e) => {
+  const handleEmailValue = (e) => {
     if (e.target.value != "") {
-      setInputValue(true);
-      console.log(inputValue);
+      setInputEmail(true);
+      setInputEmailValue(e.target.value);
+      console.log("id : " + inputEmail);
+      console.log("id.value : " + inputEmailValue);
     } else if (e.target.value == "") {
-      setInputValue(false);
-      console.log(inputValue);
+      setInputEmail(false);
+      setInputEmailValue(e.target.value);
+      console.log("id : " + inputEmail);
+      console.log("id.value : " + inputEmailValue);
     }
   };
+
+  //가운데 중간 이메일 선택
+  const [inputSelectEmailValue, setInputSelectEmailValue] = useState(false);
+  const handleSelectEmailValue = (e) => {
+    if (e.target.value != "") {
+      setInputSelectEmailValue(true);
+      console.log(inputSelectEmailValue);
+    } else if (e.target.value == "") {
+      setInputSelectEmailValue(false);
+      console.log(inputSelectEmailValue);
+    }
+  };  
+
+
+  //맨 밑 콘텐츠
+  const [inputContent, setInputContent] = useState(false);
+  const [inputContentValue, setInputContentValue] = useState("");
+
+  const handleContentValue = (e) => {
+    if (e.target.value != "") {
+      setInputContentValue(e.target.value);
+      setInputContent(true);
+      console.log("content : " + inputContent);
+      console.log("content.value : " + inputContentValue);
+    } else if (e.target.value == "") {
+      setInputContentValue(e.target.value);
+      setInputContent(false);
+      console.log("content : " + inputContent);
+      console.log("content.value : " + inputContentValue);
+    }
+  };
+
+  const [isActive, setIsActive] = useState(false);
+
+  const checkValid = () =>{
+    inputEmailValue.include("@") && inputContentValue.length >=1
+      ? setIsActive(true)
+      : setIsActive(false)
+  }
 
   function handleSubmit(e) {
     alert("성공적으로 메일을 보냈습니다.");
@@ -306,20 +351,25 @@ const ContactSend = ({
       >
         <FormTitle>Send a Message</FormTitle>
         <div>
+
+          {/*이메일*/}
           <FormEmail
             type="email"
             id="email"
             name="email"
             placeholder="Your e-mail address"
-            onChange={inputTest}
+            onKeyUp={checkValid}
+            onChange={handleEmailValue}
           />
+
+          {/*Select 이메일 */}
           <div>
             <FormDevEmail
               type="text"
               id="usr"
               name="username"
               placeholder="Select an address to send to"
-              onChange={handleSelect}
+              onChange={handleSelectEmailValue}
               value={Selected}
             >
               <FormOption>Select an address to send to</FormOption>
@@ -332,6 +382,7 @@ const ContactSend = ({
           </div>
         </div>
 
+        {/*Comment 콘텐츠*/}
         <div>
           <FormContent
             rows="5"
@@ -340,11 +391,13 @@ const ContactSend = ({
             placeholder="Write a message what you want"
             ref={textRef}
             onInput={handleResizeHeight}
+            onChange={handleContentValue}
+            onKeyUp={checkValid}
           ></FormContent>
         </div>
-        <FormBtn type="submit">
+        <button id="loginBtn" className={isActive ? "activeBtn" : "unactiveBtn"} type="submit">
           <FormBtnContent>Send</FormBtnContent>
-        </FormBtn>
+        </button>
       </Form>
       <iframe id="iframe1" name="iframe1" style={{ display: "none" }} />
     </FormWrap>
