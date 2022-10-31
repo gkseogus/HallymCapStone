@@ -1,11 +1,13 @@
 import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useRecoilState } from "recoil";
 import styled, { css } from "styled-components";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import dropDownState from "../../../Recoil/Atom";
+import i18n from "../../../lang/i18n";
 import GlobalIcon from "./Img/globalIcon.svg";
-// import i18next from "../MainNavBar/I18n/index";
 import navbarLogoIcon from "./Img/navbarLogoIcon.svg";
 import eyeTagIcon from "./Img/eyeTagIcon.svg";
 
@@ -101,17 +103,12 @@ const DropdownContain = styled.div`
 const MainNavBar = () => {
   const [toScroll, setToScroll] = useState(false);
   const [dropCount, setDropCount] = useState("");
+  const { t } = useTranslation("");
+  const [dropState, setDropState] = useRecoilState(dropDownState);
 
   const handleChange = (event) => {
     setDropCount(event.target.value);
   };
-
-  // 다국어 처리 기능 함수
-  //   const { t } = useTranslation();
-
-  //   const clickHandler = (lang) => {
-  //     i18next.changeLanguage(lang);
-  //   };
 
   const handleScroll = () => {
     // 스크롤이 Top에서 20px 이상 내려오면 true값을 useState에 넣어줌
@@ -125,6 +122,12 @@ const MainNavBar = () => {
 
   const ScrollTop = () => {
     window.scrollTo(0, 0);
+  };
+
+  // 다국어 처리 기능 함수
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setDropState(lng);
   };
 
   useEffect(() => {
@@ -142,7 +145,7 @@ const MainNavBar = () => {
         <FirstNavLinkText>Use Product</FirstNavLinkText>
       </NavLinkContain>
       <NavLinkContain onClick={ScrollTop} to="/contact">
-        <SecondNavLinkText>Contact Us</SecondNavLinkText>
+        <SecondNavLinkText>{t("InquiryMenu")}</SecondNavLinkText>
       </NavLinkContain>
       <IconContain src={GlobalIcon} alt="globalIcon" />
       <DropdownContain>
@@ -165,18 +168,16 @@ const MainNavBar = () => {
             style={{
               fontWeight: 600,
             }}
+            onClick={() => changeLanguage("en")}
           >
             EN
-            {/* <em onClick={() => clickHandler("ko")}>KO</em> */}
           </MenuItem>
-          {/* <MenuItem value={10} onClick={() => clickHandler("en")}>
-            EN
-          </MenuItem> */}
           <MenuItem
             value={10}
             style={{
               fontWeight: 600,
             }}
+            onClick={() => changeLanguage("ko")}
           >
             한국어
           </MenuItem>
@@ -185,6 +186,7 @@ const MainNavBar = () => {
             style={{
               fontWeight: 600,
             }}
+            onClick={() => changeLanguage("jp")}
           >
             日本語
           </MenuItem>
@@ -193,6 +195,7 @@ const MainNavBar = () => {
             style={{
               fontWeight: 600,
             }}
+            onClick={() => changeLanguage("ch")}
           >
             中文
           </MenuItem>

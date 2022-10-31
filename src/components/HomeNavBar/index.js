@@ -2,9 +2,11 @@ import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
-import i18n from "../../lang/i18n";
+import { useRecoilState } from "recoil";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import dropDownState from "../../Recoil/Atom";
+import i18n from "../../lang/i18n";
 import GlobalIcon from "./Img/globalIcon.svg";
 import navbarLogoIcon from "./Img/navbarLogoIcon.svg";
 import eyeTagIcon from "./Img/eyeTagIcon.svg";
@@ -102,6 +104,7 @@ const MainNavBar = ({ scroll }) => {
   const [toScroll, setToScroll] = useState(false);
   const [dropCount, setDropCount] = useState("");
   const { t } = useTranslation("");
+  const [dropState, setDropState] = useRecoilState(dropDownState);
 
   const handleChange = (event) => {
     setDropCount(event.target.value);
@@ -124,6 +127,7 @@ const MainNavBar = ({ scroll }) => {
   // 다국어 처리 기능 함수
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    setDropState(lng);
   };
 
   useEffect(() => {
