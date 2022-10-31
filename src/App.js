@@ -1,4 +1,5 @@
 import "./App.css";
+import { RecoilRoot } from "recoil";
 import AllRountes from "./AllRountes";
 import React from "react";
 import ScrollToTopButton from "./components/ScrollToTopButton";
@@ -6,8 +7,10 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 function App() {
   return (
     <div className="App">
-      <ScrollToTopButton />
-      <AllRountes />
+      <RecoilRoot>
+        <ScrollToTopButton />
+        <AllRountes />
+      </RecoilRoot>
     </div>
   );
 }
