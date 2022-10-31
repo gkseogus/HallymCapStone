@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
 import DropIcon from "../Main/Img/dropIcon.svg";
 import MainAgain from "./MainAgain";
@@ -151,6 +152,7 @@ const SelectText = styled.p`
 
 const Main = (props) => {
   const [change, setChange] = useState(false);
+  const { t } = useTranslation("");
 
   const onDrop = useCallback(
     (acceptedFiles) => {
@@ -189,10 +191,10 @@ const Main = (props) => {
           <DropzoneContain {...getRootProps({ className: "dropzone" })}>
             <InputContain>
               <Inputprops {...getInputProps()} />
-              <InputText>Dropdown your video or Select File</InputText>
+              <InputText>{t("mainPage1")}</InputText>
               <InputLogoContain src={DropIcon} alt="dropIcon" />
               <SelectButton>
-                <SelectText onClick={open}>Select File </SelectText>
+                <SelectText onClick={open}>{t("mainPage2")} </SelectText>
               </SelectButton>
             </InputContain>
           </DropzoneContain>
