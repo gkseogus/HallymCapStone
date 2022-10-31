@@ -141,7 +141,7 @@ const MainNavBar = ({ scroll }) => {
         <FirstNavLinkText>{t("startMenu")}</FirstNavLinkText>
       </NavLinkContain>
       <NavLinkContain onClick={ScrollTop} to="/contact">
-        <SecondNavLinkText>Contact Us</SecondNavLinkText>
+        <SecondNavLinkText>{t("InquiryMenu")}</SecondNavLinkText>
       </NavLinkContain>
       <IconContain src={GlobalIcon} alt="globalIcon" />
       <DropdownContain>
