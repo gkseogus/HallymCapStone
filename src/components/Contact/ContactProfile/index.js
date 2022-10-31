@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
 import githubLogo from "../../../githublogo.svg";
 import gmailLogo from "../../../mail.svg";
 import copyLogo from "../../../copy.svg";
@@ -392,6 +393,8 @@ const ContactProfile = () => {
     "moonb1504@gmail.com",
     "tmddnjs513@naver.com",
   ];
+  const { t } = useTranslation("");
+
   return (
     <PeopleWrap>
       <PeopleWrap1>
@@ -401,7 +404,7 @@ const ContactProfile = () => {
           </Position1>
           <Img1 />
           <NameWrap1>
-            <Name1>Daehyeon Han</Name1>
+            <Name1>{t("InquiryPage1")}</Name1>
             <EmailWrap1>
               <Email1Logo src={gmailLogo} />
               <CopyToClipboard
@@ -432,7 +435,7 @@ const ContactProfile = () => {
           </Position1>
           <Img1 />
           <NameWrap1>
-            <Name1>Dohyun Kim</Name1>
+            <Name1>{t("InquiryPage2")}</Name1>
             <EmailWrap1>
               <Email1Logo src={gmailLogo} />
               <CopyToClipboard
@@ -465,7 +468,7 @@ const ContactProfile = () => {
           </Position3>
           <Img1 />
           <NameWrap1>
-            <Name1>Eunseo Jeon</Name1>
+            <Name1>{t("InquiryPage3")}</Name1>
             <EmailWrap1>
               <Email1Logo src={gmailLogo} />
               <CopyToClipboard
@@ -496,7 +499,7 @@ const ContactProfile = () => {
           </Position4>
           <Img1 />
           <NameWrap1>
-            <Name1>Minjin Kim</Name1>
+            <Name1>{t("InquiryPage4")}</Name1>
             <EmailWrap1>
               <Email1Logo src={gmailLogo} />
               <CopyToClipboard
@@ -527,7 +530,7 @@ const ContactProfile = () => {
           </Position5>
           <Img1 />
           <NameWrap1>
-            <Name1>Seungwon Bang</Name1>
+            <Name1>{t("InquiryPage5")}</Name1>
             <EmailWrap1>
               <Email1Logo src={gmailLogo} />
               <CopyToClipboard

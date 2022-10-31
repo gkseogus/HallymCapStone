@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "./indexStyle.css";
-import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const FormWrap = styled.div`
@@ -244,6 +244,7 @@ const ContactSend = ({
 }) => {
   const [Selected, setSelected] = useState("");
   var docUrl = "";
+  const { t } = useTranslation("");
 
   const textRef = useRef();
   const handleResizeHeight = useCallback(() => {
@@ -265,19 +266,18 @@ const ContactSend = ({
     "https://script.google.com/macros/s/AKfycbwdepghXyWZt875TsgMXJmPlM1zckVKjuZdEtiBr8wLNRgOOW-k06W1vVAkNCa-YyUr/exec",
   ];
 
-  
   //맨 위 이메일
   //--맨위 이메일 state
   const [inputEmail, setInputEmail] = useState(false);
   const [inputEmailValue, setInputEmailValue] = useState("");
 
   const handleEmailValue = (e) => {
-    if (e.target.value != "") {
+    if (e.target.value !== "") {
       setInputEmail(true);
       setInputEmailValue(e.target.value);
       console.log("id : " + inputEmail);
       console.log("id.value : " + inputEmailValue);
-    } else if (e.target.value == "") {
+    } else if (e.target.value === "") {
       setInputEmail(false);
       setInputEmailValue(e.target.value);
       console.log("id : " + inputEmail);
@@ -288,27 +288,26 @@ const ContactSend = ({
   //가운데 중간 이메일 선택
   const [inputSelectEmailValue, setInputSelectEmailValue] = useState(false);
   const handleSelectEmailValue = (e) => {
-    if (e.target.value != "") {
+    if (e.target.value !== "") {
       setInputSelectEmailValue(true);
       console.log(inputSelectEmailValue);
-    } else if (e.target.value == "") {
+    } else if (e.target.value === "") {
       setInputSelectEmailValue(false);
       console.log(inputSelectEmailValue);
     }
-  };  
-
+  };
 
   //맨 밑 콘텐츠
   const [inputContent, setInputContent] = useState(false);
   const [inputContentValue, setInputContentValue] = useState("");
 
   const handleContentValue = (e) => {
-    if (e.target.value != "") {
+    if (e.target.value !== "") {
       setInputContentValue(e.target.value);
       setInputContent(true);
       console.log("content : " + inputContent);
       console.log("content.value : " + inputContentValue);
-    } else if (e.target.value == "") {
+    } else if (e.target.value === "") {
       setInputContentValue(e.target.value);
       setInputContent(false);
       console.log("content : " + inputContent);
@@ -318,11 +317,11 @@ const ContactSend = ({
 
   const [isActive, setIsActive] = useState(false);
 
-  const checkValid = () =>{
-    inputEmailValue.include("@") && inputContentValue.length >=1
+  const checkValid = () => {
+    inputEmailValue.include("@") && inputContentValue.length >= 1
       ? setIsActive(true)
-      : setIsActive(false)
-  }
+      : setIsActive(false);
+  };
 
   function handleSubmit(e) {
     alert("성공적으로 메일을 보냈습니다.");
@@ -331,15 +330,15 @@ const ContactSend = ({
   return (
     <FormWrap>
       <div style={{ display: "none" }}>
-        {Selected == "rlaehgusqp@naver.com"
+        {Selected === "rlaehgusqp@naver.com"
           ? (docUrl = docsList[0])
-          : Selected == "fbznffldj998@naver.com"
+          : Selected === "fbznffldj998@naver.com"
           ? (docUrl = docsList[1])
-          : Selected == "moonb1504@gmail.com"
+          : Selected === "moonb1504@gmail.com"
           ? (docUrl = docsList[2])
-          : Selected == "jeuns1108@gmail.com"
+          : Selected === "jeuns1108@gmail.com"
           ? (docUrl = docsList[3])
-          : Selected == "tmddnjs513@naver.com"
+          : Selected === "tmddnjs513@naver.com"
           ? (docUrl = docsList[4])
           : console.log("")}
       </div>
@@ -349,15 +348,14 @@ const ContactSend = ({
         target="iframe1"
         onSubmit={handleSubmit}
       >
-        <FormTitle>Send a Message</FormTitle>
+        <FormTitle>{t("InquiryPage6")}</FormTitle>
         <div>
-
           {/*이메일*/}
           <FormEmail
             type="email"
             id="email"
             name="email"
-            placeholder="Your e-mail address"
+            placeholder={t("InquiryPage7")}
             onKeyUp={checkValid}
             onChange={handleEmailValue}
           />
@@ -372,7 +370,7 @@ const ContactSend = ({
               onChange={handleSelectEmailValue}
               value={Selected}
             >
-              <FormOption>Select an address to send to</FormOption>
+              <FormOption>{t("InquiryPage8")}</FormOption>
               {selectList.map((item) => (
                 <FormOption value={item} key={item}>
                   {item}
@@ -388,15 +386,19 @@ const ContactSend = ({
             rows="5"
             id="comment"
             name="message"
-            placeholder="Write a message what you want"
+            placeholder={t("InquiryPage9")}
             ref={textRef}
             onInput={handleResizeHeight}
             onChange={handleContentValue}
             onKeyUp={checkValid}
           ></FormContent>
         </div>
-        <button id="loginBtn" className={isActive ? "activeBtn" : "unactiveBtn"} type="submit">
-          <FormBtnContent>Send</FormBtnContent>
+        <button
+          id="loginBtn"
+          className={isActive ? "activeBtn" : "unactiveBtn"}
+          type="submit"
+        >
+          <FormBtnContent>{t("InquiryPage10")}</FormBtnContent>
         </button>
       </Form>
       <iframe id="iframe1" name="iframe1" style={{ display: "none" }} />
