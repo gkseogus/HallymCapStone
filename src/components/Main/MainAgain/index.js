@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import styled, { css } from "styled-components";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
 import SubtractIcon from "../Img/subtractIcon.svg";
 import Main from "../index";
@@ -164,6 +165,7 @@ const MainAgain = (props) => {
   const [change, setChange] = useState(false);
   const [changeAnal, setChangeAnal] = useState(false);
   const downFile = props.files;
+  const { t } = useTranslation("");
 
   const chooseAgain = useCallback(() => {
     setChange(!change);
@@ -209,10 +211,10 @@ const MainAgain = (props) => {
           </FileNameContain>
           <BtnContain>
             <SelectButton>
-              <ButtonText onClick={chooseAgain}>Choose Again</ButtonText>
+              <ButtonText onClick={chooseAgain}>{t("mainPage3")}</ButtonText>
             </SelectButton>
             <AnalyzeButton>
-              <ButtonText onClick={SelectAnalyze}>Analyze video</ButtonText>
+              <ButtonText onClick={SelectAnalyze}>{t("mainPage4")}</ButtonText>
             </AnalyzeButton>
           </BtnContain>
         </Contain>

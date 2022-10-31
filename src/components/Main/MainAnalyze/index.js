@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
 import axios from "axios";
 import Main from "..";
@@ -175,6 +176,7 @@ const DownloadText = styled.p`
 const MainAnalyze = (props) => {
   const [another, setAnother] = useState(false);
   const [fileData, setFileData] = useState("");
+  const { t } = useTranslation("");
 
   const ahotherFile = useCallback(() => {
     setAnother(!another);
@@ -232,15 +234,17 @@ const MainAnalyze = (props) => {
           <Circle red />
           <Circle yellow />
           <SussessTextContain>
-            <SuccessText>Success!</SuccessText>
+            <SuccessText>{t("mainPage7")}</SuccessText>
           </SussessTextContain>
           <SuccessContain>
             <SuccessItem />
             <AnotherButton onClick={ahotherFile}>
-              <AnotherText>Another File</AnotherText>
+              <AnotherText>{t("mainPage8")}</AnotherText>
             </AnotherButton>
             <DownloadButton>
-              <DownloadText onClick={downloadFile}>Download</DownloadText>
+              <DownloadText onClick={downloadFile}>
+                {t("mainPage9")}
+              </DownloadText>
             </DownloadButton>
           </SuccessContain>
         </Contain>
