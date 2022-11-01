@@ -516,7 +516,7 @@ const Home = () => {
 
       <Home3>
         <Home3Gra />
-        <Home3P1>Try Using It Like This!</Home3P1>
+        <Home3P1>{t("UserExamples")}</Home3P1>
         <Slider2
           {...twoSettings}
           style={{
