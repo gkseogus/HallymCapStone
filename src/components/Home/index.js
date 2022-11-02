@@ -19,7 +19,7 @@ import HomeImg2_3 from "../../phone.svg";
 import HomeImg3_1 from "../../eyes.svg";
 import HomeImg3_2 from "../../input.svg";
 import HomeImg3_3 from "../../graph.svg";
-import HomeImg3_4 from "../../whkvy.png";
+import HomeImg3_4 from "../../whkvy.svg";
 
 import leftBtn from "../../leftBtn.svg";
 import rightBtn from "../../rightBtn.svg";
@@ -250,7 +250,7 @@ const Slider2P3 = styled.p`
 const Home4 = styled.div`
   position: relative;
   width: 1194px;
-  height: 2820px;
+  height: 2620px;
   background-color: white;
   left: 50%;
   margin-left: -597px;
@@ -274,10 +274,10 @@ const Home4P1 = styled.p`
 `;
 const Home4Img1 = styled.img`
   position: absolute;
-  width: 510px;
+  width: 532px;
   height: 614px;
-  left: 72px;
-  top: 232px;
+  left: 38px;
+  top: 203px;
 `;
 const Home4P2 = styled.p`
   position: absolute;
@@ -308,17 +308,17 @@ const Home4P2 = styled.p`
 const Home4P3 = styled.p`
   position: absolute;
   left: 642px;
-  top: 340px;
-
+  top: 300px;
+  
   width: 419px;
   height: 407px;
 
   font-family: "Noto Sans CJK KR";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 21px;
-  line-height: 31px;
-
+  line-height: 36px;
+  
   color: #000000;
 
   /* Inside auto layout */
@@ -353,9 +353,9 @@ const Home4P4 = styled.p`
 `;
 const Home4Img2 = styled.img`
   position: absolute;
-  width: 1050px;
-  height: 405.1px;
-  left: 72px;
+  width: 1098px;
+  height: 448.1px;
+  left: 28px;
   top: 1070px;
 `;
 const Home4P5 = styled.p`
@@ -377,17 +377,17 @@ const Home4P5 = styled.p`
 
 const Home4Img3 = styled.img`
   position: absolute;
-  width: 987px;
-  height: 400px;
-  left: -170px;
+  width: 1030px;
+  height: 440px;
+  left: -185px;
   top: 1700px;
 `;
 const Home4Img4 = styled.img`
   position: absolute;
-  width: 493px;
-  height: 380px;
-  left: 620px;
-  top: 1710px;
+  width: 540px;
+  height: 440px;
+  left: 600px;
+  top: 1700px;
 `;
 
 const Home4P6 = styled.p`
@@ -402,27 +402,61 @@ const Home4P6 = styled.p`
   font-family: "Noto Sans CJK KR";
   font-style: normal;
   font-weight: 400;
-  font-size: 25px;
-  line-height: 43px;
-
-  color: #000000;
-`;
+  font-size: 21px;
+  line-height: 36px;
+  
+  color: #000000;`;
 
 const Home4P7 = styled.a`
-  position: absolute;
-  width: 622px;
-  height: 50px;
-  bottom: 150px;
-  left: 0px;
 
-  font-family: "Noto Sans CJK KR";
+  text-decoration: none;
+  font-family: 'Noto Sans CJK KR';
+
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 36px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
   /* identical to box height */
 
   color: #000000;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 20px;
+  gap: 10px;
+  
+  position: absolute;
+  width: 432px;
+  height: 47px;
+  left: 75px;
+  top: 2470px;
+  
+  background: #F6C667;
+  border-radius: 15px;`;
+
+const Home4P7Content = styled.li`
+
+  padding-top: 9px;
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+
+  color: #000000;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
 
 const Pre = styled.div`
@@ -449,16 +483,17 @@ const Home = () => {
   const { t } = useTranslation("");
 
   const settings = {
-    draggable: false,
-    fade: true,
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 20000,
-    cssEase: "linear",
+      draggable:false,
+      fade:true,
+      dots: false,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 2000,
+      autoplaySpeed: 5000,
+      cssEase: "linear"
+
   };
 
   const twoSettings = {
@@ -604,16 +639,21 @@ const Home = () => {
         <Home4Img1 src={HomeImg3_1}></Home4Img1>
         <Home4P2>{t("TDtext1")}</Home4P2>
         <Home4P3>
-          {t("TDtext2")}
-          <br />
-          <br />
-          {t("TDtext3")}
-          <br />
-          <br />
-          {t("TDtext4")}
+
+          <p>
+            {t("TDtext2")}
+          </p>
+          <p>
+            {t("TDtext3")}
+          </p>
+          <p>
+            {t("TDtext4")}
+          </p>
+
         </Home4P3>
         <Home4P4> {t("TDtext5")}</Home4P4>
         <Home4Img2 src={HomeImg3_2}></Home4Img2>
+
         <Home4P5>{t("TDtext6")}</Home4P5>
         <Home4Img3 src={HomeImg3_3}></Home4Img3>
         <Home4Img4 src={HomeImg3_4}></Home4Img4>
@@ -621,6 +661,7 @@ const Home = () => {
         <Home4P6>{t("TDtext7")}</Home4P6>
         <Home4P7 href="https://gazecapture.csail.mit.edu/">
           {t("TDtext8")}
+
         </Home4P7>
       </Home4>
     </div>
