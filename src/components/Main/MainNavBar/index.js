@@ -142,7 +142,7 @@ const MainNavBar = () => {
       <LogoContain src={navbarLogoIcon} alt="NavbarLogoIcon" />
       <EyeTagIconContain src={eyeTagIcon} alt="eyeTagIcon" />
       <NavLinkContain onClick={ScrollTop} to="/home">
-        <FirstNavLinkText>Use Product</FirstNavLinkText>
+        <FirstNavLinkText>{t("GotoHomeMenu")}</FirstNavLinkText>
       </NavLinkContain>
       <NavLinkContain onClick={ScrollTop} to="/contact">
         <SecondNavLinkText>{t("InquiryMenu")}</SecondNavLinkText>
