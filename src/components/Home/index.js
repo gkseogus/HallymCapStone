@@ -19,7 +19,7 @@ import HomeImg2_3 from "../../phone.svg";
 import HomeImg3_1 from "../../eyes.svg";
 import HomeImg3_2 from "../../input.svg";
 import HomeImg3_3 from "../../graph.svg";
-import HomeImg3_4 from "../../whkvy.png";
+import HomeImg3_4 from "../../whkvy.svg";
 
 import leftBtn from "../../leftBtn.svg";
 import rightBtn from "../../rightBtn.svg";
@@ -247,7 +247,7 @@ const Slider2P3 = styled.p`
 const Home4 = styled.div`
   position: relative;
   width: 1194px;
-  height: 2820px;
+  height: 2620px;
   background-color: white;
   left: 50%;
   margin-left: -597px;
@@ -271,10 +271,10 @@ const Home4P1 = styled.p`
 `;
 const Home4Img1 = styled.img`
   position: absolute;
-  width: 510px;
+  width: 532px;
   height: 614px;
-  left: 72px;
-  top: 232px;
+  left: 38px;
+  top: 203px;
 `;
 const Home4P2 = styled.p`
   position: absolute;
@@ -305,17 +305,17 @@ const Home4P2 = styled.p`
 const Home4P3 = styled.p`
   position: absolute;
   left: 642px;
-  top: 340px;
+  top: 300px;
   
   width: 419px;
   height: 407px;
 
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 21px;
-  line-height: 31px;
-
+  line-height: 36px;
+  
   color: #000000;
 
   /* Inside auto layout */
@@ -351,9 +351,9 @@ const Home4P4 = styled.p`
 `;
 const Home4Img2 = styled.img`
   position: absolute;
-  width: 1050px;
-  height: 405.1px;
-  left: 72px;
+  width: 1098px;
+  height: 448.1px;
+  left: 28px;
   top: 1070px;
 `;
 const Home4P5 = styled.p`
@@ -369,23 +369,23 @@ const Home4P5 = styled.p`
   font-weight: 400;
   font-size: 21px;
   line-height: 36px;
-  
+    
   color: #000000;
 `;
 
 const Home4Img3 = styled.img`
   position: absolute;
-  width: 987px;
-  height: 400px;
-  left: -170px;
+  width: 1030px;
+  height: 440px;
+  left: -185px;
   top: 1700px;
 `;
 const Home4Img4 = styled.img`
   position: absolute;
-  width: 493px;
-  height: 380px;
-  left: 620px;
-  top: 1710px;
+  width: 540px;
+  height: 440px;
+  left: 600px;
+  top: 1700px;
 `;
 
 const Home4P6 = styled.p`
@@ -400,72 +400,61 @@ const Home4P6 = styled.p`
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
   font-weight: 400;
-  font-size: 25px;
-  line-height: 43px;
-
-  color: #000000;
-`;
+  font-size: 21px;
+  line-height: 36px;
+  
+  color: #000000;`;
 
 const Home4P7 = styled.a`
+
+  text-decoration: none;
+  font-family: 'Noto Sans CJK KR';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  /* identical to box height */
+
+  color: #000000;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 20px;
+  gap: 10px;
+  
   position: absolute;
-  width: 622px;
-  height: 50px;
-  bottom: 150px;
-  left: 0px;
+  width: 432px;
+  height: 47px;
+  left: 75px;
+  top: 2470px;
+  
+  background: #F6C667;
+  border-radius: 15px;`;
+
+const Home4P7Content = styled.li`
+
+  padding-top: 9px;
+  width: 100%;
+  height: 100%;
 
   font-family: 'Noto Sans CJK KR';
   font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 36px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
   /* identical to box height */
 
 
   color: #000000;
+
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
-
-const Home4P8 = styled.li`
-  position: absolute;
-  width: 93px;
-  height: 72px;
-  margin-left: 72px;
-  top: 2650px;
-
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
-
-  color: #000000;
-`;
-
-const Home4P9 = styled.li`
-  position: absolute;
-  width: 93px;
-  height: 72px;
-  margin-left: 72px;
-  top: 2700px;
-
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
-
-  color: #000000;
-`;
-
-//react-slick-styled-components
-const StyledSlider = styled(Slider)`
-  height: 100%;
-  width: 100%;
-  position: relative;
-  .slick-prev::before,
-  .slick-next::before {
-    opacity: 0;
-    display: none;
-  }`;
 
 const Pre = styled.div`
   width: 30px;
@@ -509,7 +498,7 @@ const Home = () => {
       slidesToScroll: 1,
       autoplay: true,
       speed: 2000,
-      autoplaySpeed: 20000,
+      autoplaySpeed: 5000,
       cssEase: "linear"
   };
 
@@ -610,18 +599,22 @@ const Home = () => {
         <Home4Img1 src={HomeImg3_1}></Home4Img1>
         <Home4P2>What is eye tracking?</Home4P2>
         <Home4P3>
-        &nbsp;Eye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. 
-        <br/><br/>
-        An eye tracker is a device for measuring eye positions and eye movement. 
-        <br/><br/>
-        Eye trackers are used in research &nbsp; on the visual system, in psychology, in psycholinguistics, marketing, as &nbsp; an input device for human-computer interaction, and in product design. 
+          <p>
+            &nbsp;<span style={{fontWeight:"600", fontSize:"32px"}}>E</span>ye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. 
+          </p>
+          <p>
+            <span style={{fontWeight:"600", fontSize:"32px"}}>A</span>n eye tracker is a device for measuring eye positions and eye movement. 
+          </p>
+          <p>
+            <span style={{fontWeight:"600", fontSize:"32px"}}>E</span>ye trackers are used in research &nbsp; on the visual system, in psychology, in psycholinguistics, marketing, as &nbsp; an input device for human-computer interaction, and in product design. 
+          </p>
         </Home4P3>
 
         <Home4P4>How to analyze</Home4P4>
         <Home4Img2 src={HomeImg3_2}></Home4Img2>
         <Home4P5>
-          &nbsp;  Crop the right eye and left eye in the face frame and divide them into separate layers for analysis. 
-          Then, after dividing the face frame into grid units, we find the coordinates of the right and left eyes to find out where the user is looking.
+          &nbsp;<span style={{fontWeight:"600", fontSize:"32px"}}>D</span>ata preprocessing is performed by cropping the user's face and eyes based on the input photo. 
+          The model then divides the face frame into grid units and finds the coordinates of the right and left eyes to find out where the user is looking.
         </Home4P5>
 
         {/* <Home4P7>Lorem ipsum dolor sit amet</Home4P7> */}
@@ -629,12 +622,14 @@ const Home = () => {
         <Home4Img4 src={HomeImg3_4}></Home4Img4>
 
         <Home4P6>
-        &nbsp;Eye tracking is the process of measuring either the point of gaze (where one is looking) or the motion of an eye relative to the head. 
-        <br/><br/>
-        &nbsp;There is an error of about 2.5cm on the tablet. It's about 2.1cm when it's corrected.
+          &nbsp;<span style={{fontWeight:"600", fontSize:"32px"}}>A</span>ccording to the paper, performance and precision when using the model as a tablet is about 2.3 cm. 
+          It is very meaningful that tracking is possible with only a face photo,
+          but the accuracy tends to be somewhat lower. Therefore, continuous research is needed to advance model performance.
         </Home4P6>
         <Home4P7 href="https://gazecapture.csail.mit.edu/">
-          Source - https://gazecapture.csail.mit.edu/        
+          <Home4P7Content>
+            Source - https://gazecapture.csail.mit.edu/        
+          </Home4P7Content>
         </Home4P7>
         
       </Home4>
