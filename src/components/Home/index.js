@@ -41,7 +41,7 @@ const Home1P1 = styled.div`
   right: 31.83%;
   top: 10.71%;
   bottom: 76.9%;
-  white-space: pre-wrap;
+  white-space: pre-line;
 
   font-family: "Noto Sans CJK KR";
   font-style: normal;
@@ -229,7 +229,7 @@ const Slider2P2 = styled.p`
 const Slider2P3 = styled.p`
   width: 476px;
   height: 144px;
-  white-space: pre-wrap;
+  white-space: pre-line;
 
   padding-top: 36px;
   font-family: "Noto Sans CJK KR";
