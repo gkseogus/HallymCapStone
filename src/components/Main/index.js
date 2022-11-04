@@ -30,9 +30,7 @@ const Circle = styled.div`
       height: 81px;
       margin-top: 412px;
       margin-left: 102px;
-      border-radius: 100%;
       background-color: #ffc8f9;
-      position: absolute;
     `}
   ${(props) =>
     props.aqua &&
@@ -41,9 +39,7 @@ const Circle = styled.div`
       height: 133px;
       margin-top: 622px;
       margin-left: 272px;
-      border-radius: 100%;
       background-color: #bcf7f3;
-      position: absolute;
     `}
     ${(props) =>
     props.green &&
@@ -52,9 +48,7 @@ const Circle = styled.div`
       height: 153px;
       margin-top: 401px;
       margin-left: 574px;
-      border-radius: 100%;
       background-color: #c8e9a7;
-      position: absolute;
     `}
     ${(props) =>
     props.red &&
@@ -63,9 +57,7 @@ const Circle = styled.div`
       height: 207px;
       margin-top: 718px;
       margin-left: 724px;
-      border-radius: 100%;
       background-color: #ffaaaa;
-      position: absolute;
     `}
     ${(props) =>
     props.yellow &&
@@ -74,9 +66,7 @@ const Circle = styled.div`
       height: 265px;
       margin-top: 224px;
       margin-left: 929px;
-      border-radius: 100%;
       background-color: #f5d29c;
-      position: absolute;
     `}
 `;
 
