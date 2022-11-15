@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
 import axios from "axios";
 import Main from "..";
+import successImg from "./Img/successImg.png";
 
 const Contain = styled.div`
   width: 1194px;
@@ -104,13 +105,12 @@ const SuccessText = styled.p`
   color: #000000;
 `;
 
-const SuccessItem = styled.div`
+const SuccessItem = styled.img`
   width: 300px;
   height: 300px;
   left: 811px;
   top: 398px;
   margin-top: 54px;
-  background-color: black;
 `;
 
 const AnotherButton = styled.button`
@@ -237,7 +237,7 @@ const MainAnalyze = (props) => {
             <SuccessText>{t("mainPage7")}</SuccessText>
           </SussessTextContain>
           <SuccessContain>
-            <SuccessItem />
+            <SuccessItem src={successImg} alt="successImg" />
             <AnotherButton onClick={ahotherFile}>
               <AnotherText>{t("mainPage8")}</AnotherText>
             </AnotherButton>
