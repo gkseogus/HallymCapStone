@@ -163,24 +163,22 @@ const ButtonText = styled.p`
 
 const MainAgain = (props) => {
   const [change, setChange] = useState(false);
-  const [changeAnal, setChangeAnal] = useState(false);
+  const [changeAnalyze, setChangeAnalyze] = useState(false);
   const downFile = props.files;
   const { t } = useTranslation("");
 
   const chooseAgain = useCallback(() => {
     setChange(!change);
-    setChangeAnal(changeAnal);
-  }, [change, changeAnal]);
+  }, [change]);
 
   const SelectAnalyze = async () => {
+    setChange(change);
+    setChangeAnalyze(!changeAnalyze);
     try {
-      console.log(downFile);
       //Successful response
       await axios.post("http://localhost:8000/api/insert", {
         file: downFile[0].key,
       });
-      setChange(change);
-      setChangeAnal(!changeAnal);
     } catch (error) {
       //Failed to respond
       console.log("write error", error);
@@ -189,11 +187,11 @@ const MainAgain = (props) => {
 
   return (
     <div>
-      {change && !changeAnal ? (
+      {change ? (
         <Main />
-      ) : !change && changeAnal ? (
+      ) : changeAnalyze ? (
         <MainAnalyze files={props.files} />
-      ) : !change && !changeAnal ? (
+      ) : !change ? (
         <Contain>
           <Circle />
           <Circle pink />
