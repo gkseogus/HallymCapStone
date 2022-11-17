@@ -81,13 +81,13 @@ const Circle = styled.div`
 `;
 
 const FileNameContain = styled.div`
-  width: 905px;
+  width: 760px;
   height: 60px;
   order: 0;
   flex-grow: 0;
   stroke-width: 10px;
   margin-top: 360px;
-  margin-left: 144px;
+  margin-left: 240px;
   position: absolute;
   background: #ffffff;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
@@ -112,7 +112,7 @@ const FileName = styled.aside`
 const SubtractContain = styled.img`
   cursor: pointer;
   margin-top: 18.5px;
-  margin-left: 851px;
+  margin-left: 700px;
 `;
 
 const BtnContain = styled.div`
