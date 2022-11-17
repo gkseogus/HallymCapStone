@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from "react";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import styled, { css } from "styled-components";
-import axios from "axios";
 import Main from "..";
 import successImg from "./Img/successImg.png";
 
@@ -175,7 +173,6 @@ const DownloadText = styled.p`
 
 const MainAnalyze = (props) => {
   const [another, setAnother] = useState(false);
-  const [fileData, setFileData] = useState("");
   const { t } = useTranslation("");
 
   const ahotherFile = useCallback(() => {
@@ -194,33 +191,6 @@ const MainAnalyze = (props) => {
     document.body.appendChild(element);
     element.click();
   }, [props.files]);
-
-  // 파일리스트를 불러오는 함수
-  const getList = async () => {
-    axios.defaults.withCredentials = true;
-    const config = {
-      headers: {
-        withCredentials: true,
-      },
-    };
-    try {
-      //Successful response
-      const response = await axios.get(
-        "http://localhost:8000/api/list",
-        config
-      );
-      const data = response.data;
-      const lastData = response.data[data.length - 1];
-      setFileData(lastData);
-    } catch (error) {
-      //Failed to respond
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getList();
-  }, []);
 
   return (
     <div>
