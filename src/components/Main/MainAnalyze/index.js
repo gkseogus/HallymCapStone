@@ -183,18 +183,19 @@ const MainAnalyze = (props) => {
   }, [another]);
 
   const downloadFile = useCallback(() => {
-    let output = "string 타입의 데이터";
+    let fileName = props.files[0].key;
+    let output = "* 타입의 데이터";
     const element = document.createElement("a");
     const file = new Blob([output], {
-      type: "video/*",
+      type: "*",
     });
     element.href = URL.createObjectURL(file);
-    element.download = fileData;
+    element.download = fileName;
     document.body.appendChild(element);
     element.click();
-  }, [fileData]);
+  }, [props.files]);
 
-  // 게시물 불러오는 함수
+  // 파일리스트를 불러오는 함수
   const getList = async () => {
     axios.defaults.withCredentials = true;
     const config = {
