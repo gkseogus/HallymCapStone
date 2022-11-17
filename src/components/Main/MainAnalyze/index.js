@@ -189,8 +189,8 @@ const MainAnalyze = (props) => {
     element.href = URL.createObjectURL(file);
     element.download = fileName;
     document.body.appendChild(element);
-    element.click();
-  }, [props.files]);
+    element.click(alert(t("mainPage10")));
+  }, [props.files, t]);
 
   return (
     <div>
