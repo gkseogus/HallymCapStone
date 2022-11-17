@@ -147,8 +147,6 @@ const Main = (props) => {
   const onDrop = useCallback(
     (acceptedFiles) => {
       setChange(!change);
-      // Do something with the files
-      console.log(acceptedFiles);
     },
     [change]
   );
