@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
@@ -164,7 +164,7 @@ const ButtonText = styled.p`
 const MainAgain = (props) => {
   const [change, setChange] = useState(false);
   const [changeAnalyze, setChangeAnalyze] = useState(false);
-  const downFile = props.files;
+  const [downFile, setDownFile] = useState(props.files[0].key);
   const { t } = useTranslation("");
 
   const chooseAgain = useCallback(() => {
@@ -185,6 +185,12 @@ const MainAgain = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (downFile.length > 11) {
+      setDownFile(downFile.substr(0, 8) + "...");
+    }
+  }, [downFile]);
+
   return (
     <div>
       {change ? (
@@ -200,7 +206,7 @@ const MainAgain = (props) => {
           <Circle red />
           <Circle yellow />
           <FileNameContain>
-            <FileName>{props.files}</FileName>
+            <FileName>{downFile}</FileName>
             <SubtractContain
               src={SubtractIcon}
               alt="subtract button"
