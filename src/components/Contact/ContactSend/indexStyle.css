@@ -1,18 +1,18 @@
 .activeBtn{
-    display: flex;
+  display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  justify-content: center;
   padding: 12px 24px;
   gap: 10px;
 
   position: relative;
-  width: 115px;
+  width: 160px;
   height: 57px;
 
   top: 318px;
   margin: auto;
 
-  font-family: "Pretendard";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 600;
   font-size: 28px;
@@ -34,13 +34,14 @@
     gap: 10px;
   
     position: relative;
-    width: 115px;
+    width: 160px;
     height: 57px;
   
     top: 318px;
     margin: auto;
   
-    font-family: "Pretendard";
+    font-family: "notoBold";
+    justify-content: center;
     font-style: normal;
     font-weight: 600;
     font-size: 28px;
