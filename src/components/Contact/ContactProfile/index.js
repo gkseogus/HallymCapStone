@@ -2,10 +2,23 @@ import React from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+
 import githubLogo from "../../../githublogo.svg";
 import gmailLogo from "../../../mail.svg";
 import copyLogo from "../../../copy.svg";
 import linkLogo from "../../../link.svg";
+
+import githubLogoHover from "../../../githublogoHover.svg";
+import gmailLogoHover from "../../../mailHover.svg";
+import copyLogoHover from "../../../copyHover.svg";
+import linkLogoHover from "../../../linkHover.svg";
+
+import dhImg from "../../../dh.svg";
+import hdhImg from "../../../hdh.svg";
+import mjImg from "../../../mj.svg";
+import esImg from "../../../es.svg";
+import swImg from "../../../sw.svg";
+import { useState } from "react";
 
 const PeopleWrap = styled.div`
   position: relative;
@@ -193,7 +206,7 @@ const Position1P = styled.p`
   flex-grow: 0;
 `;
 
-const Img1 = styled.div`
+const Img1 = styled.img`
   width: 170px;
   height: 170px;
   position: absolute;
@@ -232,7 +245,7 @@ const Name1 = styled.p`
   height: 30px;
 
   margin: auto;
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -296,7 +309,7 @@ const Email1CopyLogo = styled.img`
 const Email1 = styled.p`
   height: 21px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -308,6 +321,7 @@ const Email1 = styled.p`
   color: #202124;
   &:hover {
     cursor: pointer;
+    color:#999999;
   }
 
   /* Inside auto layout */
@@ -363,7 +377,7 @@ const Github1 = styled.p`
   width: 44px;
   height: 21px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -382,6 +396,7 @@ const Github1 = styled.p`
 
   &:hover {
     cursor: pointer;
+    color:#999999;
   }
 `;
 
@@ -393,6 +408,22 @@ const ContactProfile = () => {
     "moonb1504@gmail.com",
     "tmddnjs513@naver.com",
   ];
+
+  const [mailHover1, setMailHover1] = useState(false);
+  const [gitHover1, setGitHover1] = useState(false);
+  
+  const [mailHover2, setMailHover2] = useState(false);
+  const [gitHover2, setGitHover2] = useState(false);
+  
+  const [mailHover3, setMailHover3] = useState(false);
+  const [gitHover3, setGitHover3] = useState(false);
+
+  const [mailHover4, setMailHover4] = useState(false);
+  const [gitHover4, setGitHover4] = useState(false);
+
+  const [mailHover5, setMailHover5] = useState(false);
+  const [gitHover5, setGitHover5] = useState(false);
+
   const { t } = useTranslation("");
 
   return (
@@ -402,29 +433,34 @@ const ContactProfile = () => {
           <Position1>
             <Position1P>FE</Position1P>
           </Position1>
-          <Img1 />
+          <Img1 src={hdhImg}/>
           <NameWrap1>
             <Name1>{t("InquiryPage1")}</Name1>
             <EmailWrap1>
-              <Email1Logo src={gmailLogo} />
+              <Email1Logo src={mailHover1? gmailLogoHover : gmailLogo} />
               <CopyToClipboard
                 text={email[0]}
-                onCopy={() => alert("주소가 복사되었습니다")}
+                onCopy={() => alert(t("ale"))}
               >
-                <Email1 className="URL">{email[0]}</Email1>
+                <Email1 className="URL" 
+                  onMouseOver={() => setMailHover1(true)}
+                  onMouseOut={() => setMailHover1(false)}
+                >{email[0]}</Email1>
               </CopyToClipboard>
-              <Email1CopyLogo src={copyLogo} />
+              <Email1CopyLogo src={mailHover1?copyLogoHover:copyLogo} />
             </EmailWrap1>
             <GithubWrap1>
-              <GithubLogo src={githubLogo} />
+              <GithubLogo src={gitHover1?githubLogoHover:githubLogo} />
               <Github1
                 onClick={() =>
                   window.open("https://github.com/gkseogus", "_blank")
                 }
+                onMouseOver={() => setGitHover1(true)}
+                onMouseOut={() => setGitHover1(false)}
               >
                 github
               </Github1>
-              <Email1LinkLogo src={linkLogo} />
+              <Email1LinkLogo src={gitHover1?linkLogoHover:linkLogo} />
             </GithubWrap1>
           </NameWrap1>
         </People1>
@@ -433,29 +469,34 @@ const ContactProfile = () => {
           <Position1>
             <Position1P>FE</Position1P>
           </Position1>
-          <Img1 />
+          <Img1 src={dhImg}/>
           <NameWrap1>
             <Name1>{t("InquiryPage2")}</Name1>
             <EmailWrap1>
-              <Email1Logo src={gmailLogo} />
+              <Email1Logo src={mailHover2? gmailLogoHover : gmailLogo} />
               <CopyToClipboard
                 text={email[1]}
-                onCopy={() => alert("주소가 복사되었습니다")}
+                onCopy={() => alert(t("ale"))}
               >
-                <Email1 className="URL">{email[1]}</Email1>
+                <Email1 className="URL"
+                  onMouseOver={() => setMailHover2(true)}
+                  onMouseOut={() => setMailHover2(false)}
+                >{email[1]}</Email1>
               </CopyToClipboard>
-              <Email1CopyLogo src={copyLogo} />
-            </EmailWrap1>
+              <Email1CopyLogo src={mailHover2? copyLogoHover : copyLogo} />
+            </EmailWrap1> 
             <GithubWrap1>
-              <GithubLogo src={githubLogo} />
+              <GithubLogo src={gitHover2?githubLogoHover:githubLogo} />
               <Github1
                 onClick={() =>
                   window.open("https://github.com/doggang", "_blank")
                 }
+                onMouseOver={() => setGitHover2(true)}
+                onMouseOut={() => setGitHover2(false)}
               >
                 github
               </Github1>
-              <Email1LinkLogo src={linkLogo} />
+              <Email1LinkLogo src={gitHover2?linkLogoHover:linkLogo} />
             </GithubWrap1>
           </NameWrap1>
         </People2>
@@ -466,29 +507,34 @@ const ContactProfile = () => {
           <Position3>
             <Position1P>AI</Position1P>
           </Position3>
-          <Img1 />
+          <Img1 src={esImg}/>
           <NameWrap1>
             <Name1>{t("InquiryPage3")}</Name1>
             <EmailWrap1>
-              <Email1Logo src={gmailLogo} />
+              <Email1Logo src={mailHover3? gmailLogoHover : gmailLogo} />
               <CopyToClipboard
                 text={email[2]}
-                onCopy={() => alert("주소가 복사되었습니다")}
+                onCopy={() => alert(t("ale"))}
               >
-                <Email1 className="URL">{email[2]}</Email1>
+                <Email1 className="URL"
+                  onMouseOver={() => setMailHover3(true)}
+                  onMouseOut={() => setMailHover3(false)}
+                >{email[2]}</Email1>
               </CopyToClipboard>
-              <Email1CopyLogo src={copyLogo} />
+              <Email1CopyLogo src={mailHover3? copyLogoHover : copyLogo} />
             </EmailWrap1>
             <GithubWrap1>
-              <GithubLogo src={githubLogo} />
+              <GithubLogo src={gitHover3?githubLogoHover:githubLogo} />
               <Github1
                 onClick={() =>
                   window.open("https://github.com/jeonuenseo", "_blank")
                 }
+                onMouseOver={() => setGitHover3(true)}
+                onMouseOut={() => setGitHover3(false)}
               >
                 github
               </Github1>
-              <Email1LinkLogo src={linkLogo} />
+              <Email1LinkLogo src={gitHover3?linkLogoHover:linkLogo} />
             </GithubWrap1>
           </NameWrap1>
         </People3>
@@ -497,29 +543,35 @@ const ContactProfile = () => {
           <Position4>
             <Position1P>UX/UI</Position1P>
           </Position4>
-          <Img1 />
+          <Img1 src={mjImg}/>
           <NameWrap1>
             <Name1>{t("InquiryPage4")}</Name1>
             <EmailWrap1>
-              <Email1Logo src={gmailLogo} />
+              <Email1Logo src={mailHover4? gmailLogoHover : gmailLogo} />
               <CopyToClipboard
                 text={email[3]}
-                onCopy={() => alert("주소가 복사되었습니다")}
+                onCopy={() => alert(t("ale"))}
               >
-                <Email1 className="URL">{email[3]}</Email1>
+                <Email1 className="URL"
+                  onMouseOver={() => setMailHover4(true)}
+                  onMouseOut={() => setMailHover4(false)}
+                >
+                {email[3]}</Email1>
               </CopyToClipboard>
-              <Email1CopyLogo src={copyLogo} />
+              <Email1CopyLogo src={mailHover4? copyLogoHover : copyLogo} />
             </EmailWrap1>
             <GithubWrap1>
-              <GithubLogo src={githubLogo} />
+              <GithubLogo src={gitHover4?githubLogoHover:githubLogo} />
               <Github1
                 onClick={() =>
                   window.open("https://github.com/Miinjin", "_blank")
                 }
+                onMouseOver={() => setGitHover4(true)}
+                onMouseOut={() => setGitHover4(false)}
               >
                 github
               </Github1>
-              <Email1LinkLogo src={linkLogo} />
+              <Email1LinkLogo src={gitHover4?linkLogoHover:linkLogo} />
             </GithubWrap1>
           </NameWrap1>
         </People4>
@@ -528,29 +580,34 @@ const ContactProfile = () => {
           <Position5>
             <Position1P>PM</Position1P>
           </Position5>
-          <Img1 />
+          <Img1 src={swImg}/>
           <NameWrap1>
             <Name1>{t("InquiryPage5")}</Name1>
             <EmailWrap1>
-              <Email1Logo src={gmailLogo} />
+              <Email1Logo src={mailHover5? gmailLogoHover : gmailLogo} />
               <CopyToClipboard
                 text={email[4]}
-                onCopy={() => alert("주소가 복사되었습니다")}
+                onCopy={() => alert(t("ale"))}
               >
-                <Email1 className="URL">{email[4]}</Email1>
+                <Email1 className="URL"
+                  onMouseOver={() => setMailHover5(true)}
+                  onMouseOut={() => setMailHover5(false)}
+                >{email[4]}</Email1>
               </CopyToClipboard>
-              <Email1CopyLogo src={copyLogo} />
+              <Email1CopyLogo src={mailHover5? copyLogoHover : copyLogo} />
             </EmailWrap1>
             <GithubWrap1>
-              <GithubLogo src={githubLogo} />
+              <GithubLogo src={gitHover5?githubLogoHover:githubLogo} />
               <Github1
                 onClick={() =>
                   window.open("https://github.com/seungwonB", "_blank")
                 }
+                onMouseOver={() => setGitHover5(true)}
+                onMouseOut={() => setGitHover5(false)}
               >
                 github
               </Github1>
-              <Email1LinkLogo src={linkLogo} />
+              <Email1LinkLogo src={gitHover5?linkLogoHover:linkLogo} />
             </GithubWrap1>
           </NameWrap1>
         </People5>
