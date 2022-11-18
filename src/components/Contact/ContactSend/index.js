@@ -3,6 +3,9 @@ import "./indexStyle.css";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+
 const FormWrap = styled.div`
   position: relatvie;
   width: 100%;
@@ -19,11 +22,11 @@ const Form = styled.form`
 
 const FormTitle = styled.p`
   position: relative;
-  width: 311px;
+  width: 331px;
   height: 48px;
   margin: auto;
   top: 75px;
-  font-family: "Pretendard";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 600;
   font-size: 40px;
@@ -61,7 +64,7 @@ const FormEmail = styled.input`
   order: 0;
   flex-grow: 0;
 
-  font-family: "Pretendard";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -75,7 +78,7 @@ const FormEmail = styled.input`
   position: relative;
 
   ::placeholder {
-    font-family: "Pretendard";
+    font-family: "notoMed";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -98,7 +101,7 @@ const FormDevEmail = styled.select`
   background-color: #e8f2ff;
   border: none;
   border-bottom: 3px solid black;
-  font-family: "Pretendard";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -132,7 +135,7 @@ const FormContent = styled.textarea`
   align-items: center;
   padding: 0px;
   gap: 6px;
-  font-family: "Pretendard";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -166,7 +169,7 @@ const FormContent = styled.textarea`
   border-bottom: 3px solid black;
   max-height: 66px;
   ::placeholder {
-    font-family: "Pretendard";
+    font-family: "notoMed";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -186,7 +189,7 @@ const FormOption = styled.option`
   padding: 10px 39.5px;
 
   line-height: 30px;
-
+  font-family:"notoMed";
   gap: 5px;
   height: 41px;
   width: 300px;
@@ -233,6 +236,17 @@ const FormOption = styled.option`
 
 const FormBtnContent = styled.p`
   margin-top: -3px;
+  font-family: notoBold;
+  text-align:center;
+  justify-content:center;
+`;
+
+const DropdownContain = styled.div`
+  width: 205px;
+  height: 70px;
+  margin-left: 8px;
+  margin-right: 21.7%;
+  margin-bottom: 200px;
 `;
 
 const ContactSend = ({
@@ -266,65 +280,23 @@ const ContactSend = ({
     "https://script.google.com/macros/s/AKfycbwdepghXyWZt875TsgMXJmPlM1zckVKjuZdEtiBr8wLNRgOOW-k06W1vVAkNCa-YyUr/exec",
   ];
 
-  //맨 위 이메일
-  //--맨위 이메일 state
-  const [inputEmail, setInputEmail] = useState(false);
-  const [inputEmailValue, setInputEmailValue] = useState("");
-
-  const handleEmailValue = (e) => {
-    if (e.target.value !== "") {
-      setInputEmail(true);
-      setInputEmailValue(e.target.value);
-      console.log("id : " + inputEmail);
-      console.log("id.value : " + inputEmailValue);
-    } else if (e.target.value === "") {
-      setInputEmail(false);
-      setInputEmailValue(e.target.value);
-      console.log("id : " + inputEmail);
-      console.log("id.value : " + inputEmailValue);
-    }
+  const handleSelect = (e) => {
+    setSelected(e.target.value);
   };
 
-  //가운데 중간 이메일 선택
-  const [inputSelectEmailValue, setInputSelectEmailValue] = useState(false);
-  const handleSelectEmailValue = (e) => {
-    if (e.target.value !== "") {
-      setInputSelectEmailValue(true);
-      console.log(inputSelectEmailValue);
-    } else if (e.target.value === "") {
-      setInputSelectEmailValue(false);
-      console.log(inputSelectEmailValue);
+  const [inputValue, setInputValue] = useState(false);
+  const inputTest = (e) => {
+    if (e.target.value != "") {
+      setInputValue(true);
+      console.log(inputValue);
+    } else if (e.target.value == "") {
+      setInputValue(false);
+      console.log(inputValue);
     }
-  };
-
-  //맨 밑 콘텐츠
-  const [inputContent, setInputContent] = useState(false);
-  const [inputContentValue, setInputContentValue] = useState("");
-
-  const handleContentValue = (e) => {
-    if (e.target.value !== "") {
-      setInputContentValue(e.target.value);
-      setInputContent(true);
-      console.log("content : " + inputContent);
-      console.log("content.value : " + inputContentValue);
-    } else if (e.target.value === "") {
-      setInputContentValue(e.target.value);
-      setInputContent(false);
-      console.log("content : " + inputContent);
-      console.log("content.value : " + inputContentValue);
-    }
-  };
-
-  const [isActive, setIsActive] = useState(false);
-
-  const checkValid = () => {
-    inputEmailValue.include("@") && inputContentValue.length >= 1
-      ? setIsActive(true)
-      : setIsActive(false);
   };
 
   function handleSubmit(e) {
-    alert("성공적으로 메일을 보냈습니다.");
+    alert(t("mailAle"));
   }
 
   return (
@@ -356,8 +328,7 @@ const ContactSend = ({
             id="email"
             name="email"
             placeholder={t("InquiryPage7")}
-            onKeyUp={checkValid}
-            onChange={handleEmailValue}
+            onChange={inputTest}
           />
 
           {/*Select 이메일 */}
@@ -367,7 +338,7 @@ const ContactSend = ({
               id="usr"
               name="username"
               placeholder="Select an address to send to"
-              onChange={handleSelectEmailValue}
+              onChange={handleSelect}
               value={Selected}
             >
               <FormOption>{t("InquiryPage8")}</FormOption>
@@ -389,19 +360,66 @@ const ContactSend = ({
             placeholder={t("InquiryPage9")}
             ref={textRef}
             onInput={handleResizeHeight}
-            onChange={handleContentValue}
-            onKeyUp={checkValid}
           ></FormContent>
         </div>
         <button
           id="loginBtn"
-          className={isActive ? "activeBtn" : "unactiveBtn"}
+          className={"unactiveBtn"}
           type="submit"
         >
           <FormBtnContent>{t("InquiryPage10")}</FormBtnContent>
         </button>
       </Form>
       <iframe id="iframe1" name="iframe1" style={{ display: "none" }} />
+
+      <DropdownContain>
+        <Select
+          displayEmpty
+          style={{
+            width: "95px",
+            height: "25px",
+            fontSize: "16px",
+            fontWeight: "600",
+            marginTop: "13px",
+            marginLeft: "8px",
+            background: "#none",
+          }}
+        >
+          <MenuItem
+            value=""
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            EN
+          </MenuItem>
+          <MenuItem
+            value={10}
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            한국어
+          </MenuItem>
+          <MenuItem
+            value={20}
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            日本語
+          </MenuItem>
+          <MenuItem
+            value={30}
+            style={{
+              fontWeight: 600,
+            }}
+          >
+            中文
+          </MenuItem>
+        </Select>
+      </DropdownContain>
+
     </FormWrap>
   );
 };
