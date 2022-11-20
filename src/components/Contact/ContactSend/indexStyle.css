@@ -50,9 +50,21 @@
   
     color: #ffffff;
   
-    background: #cccccc;
+    background: #1A73E8;
     box-shadow: 3px 5px 10px rgba(32, 33, 36, 0.15);
     border-radius: 100px;
     border: none;
     
+}
+.select2 fieldset{
+  border: none !important;
+  border-bottom: 3px solid #202124 !important;
+  border-radius: 0 !important;
+  ;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: #1250A2;
+  transition-duration: 0.17s;
 }
