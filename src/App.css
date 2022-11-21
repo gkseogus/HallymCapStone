@@ -7,6 +7,26 @@
   pointer-events: none;
 }
 
+@font-face {
+  font-family: "notoBold";
+  src: url("./fonts/NotoSansCJKkr-Bold.otf");
+}
+
+@font-face {
+  font-family: "notoMed";
+  src: url("./fonts/NotoSansCJKkr-Medium.otf");
+}
+
+@font-face {
+  font-family: "notoReg";
+  src: url("./fonts/NotoSansCJKkr-Regular.otf");
+}
+
+@font-face {
+  font-family: "notoBold";
+  src: url("./fonts/NotoSansCJKkr-Bold.otf");
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

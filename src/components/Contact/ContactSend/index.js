@@ -3,6 +3,12 @@ import "./indexStyle.css";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
+import Select2 from "@mui/material/Select";
+import MenuItem2 from "@mui/material/MenuItem";
+import { useTheme } from '@mui/material/styles';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import FormControl from '@mui/material/FormControl';
+
 const FormWrap = styled.div`
   position: relatvie;
   width: 100%;
@@ -19,11 +25,11 @@ const Form = styled.form`
 
 const FormTitle = styled.p`
   position: relative;
-  width: 311px;
+  width: 331px;
   height: 48px;
   margin: auto;
   top: 75px;
-  font-family: "Pretendard";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 600;
   font-size: 40px;
@@ -61,7 +67,7 @@ const FormEmail = styled.input`
   order: 0;
   flex-grow: 0;
 
-  font-family: "Pretendard";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -75,7 +81,7 @@ const FormEmail = styled.input`
   position: relative;
 
   ::placeholder {
-    font-family: "Pretendard";
+    font-family: "notoMed";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -88,42 +94,7 @@ const FormEmail = styled.input`
   }
 `;
 
-const FormDevEmail = styled.select`
-  position: relative;
 
-  top: 205px;
-  margin: auto;
-
-  text-align: center;
-  background-color: #e8f2ff;
-  border: none;
-  border-bottom: 3px solid black;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  /* identical to box height */
-
-  text-align: center;
-
-  color: #bbbbbb;
-  padding-bottom: 10px;
-
-  width: 300px;
-  height: 41px;
-
-  border-bottom: 3px solid #202124;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  &:hover {
-    cursor: pointer;
-  }
-`;
 
 const FormContent = styled.textarea`
   top: 240px;
@@ -132,7 +103,7 @@ const FormContent = styled.textarea`
   align-items: center;
   padding: 0px;
   gap: 6px;
-  font-family: "Pretendard";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -166,11 +137,11 @@ const FormContent = styled.textarea`
   border-bottom: 3px solid black;
   max-height: 66px;
   ::placeholder {
-    font-family: "Pretendard";
+    font-family: "notoMed";
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 44px;
     /* identical to box height */
 
     text-align: center;
@@ -186,7 +157,7 @@ const FormOption = styled.option`
   padding: 10px 39.5px;
 
   line-height: 30px;
-
+  font-family:"notoMed";
   gap: 5px;
   height: 41px;
   width: 300px;
@@ -199,6 +170,8 @@ const FormOption = styled.option`
 
   background: #ffffff;
 `;
+
+
 // const FormBtn = styled.button`
 //   display: flex;
 //   flex-direction: row;
@@ -232,7 +205,18 @@ const FormOption = styled.option`
 // `;
 
 const FormBtnContent = styled.p`
-  margin-top: -3px;
+  margin-top: -1px;
+  font-family: notoBold;
+  text-align:center;
+  justify-content:center;
+`;
+
+const DropdownContain = styled.div`
+  width: 205px;
+  height: 70px;
+  margin-left: 8px;
+  margin-right: 21.7%;
+  margin-bottom: 200px;
 `;
 
 const ContactSend = ({
@@ -242,9 +226,10 @@ const ContactSend = ({
   resetForm,
   onSearchButtonClick,
 }) => {
-  const [Selected, setSelected] = useState("");
-  var docUrl = "";
   const { t } = useTranslation("");
+
+  const [linkSelected, setLinkSelected] = useState("");
+  var docUrl = "";
 
   const textRef = useRef();
   const handleResizeHeight = useCallback(() => {
@@ -266,79 +251,50 @@ const ContactSend = ({
     "https://script.google.com/macros/s/AKfycbwdepghXyWZt875TsgMXJmPlM1zckVKjuZdEtiBr8wLNRgOOW-k06W1vVAkNCa-YyUr/exec",
   ];
 
-  //맨 위 이메일
-  //--맨위 이메일 state
-  const [inputEmail, setInputEmail] = useState(false);
-  const [inputEmailValue, setInputEmailValue] = useState("");
-
-  const handleEmailValue = (e) => {
-    if (e.target.value !== "") {
-      setInputEmail(true);
-      setInputEmailValue(e.target.value);
-      console.log("id : " + inputEmail);
-      console.log("id.value : " + inputEmailValue);
-    } else if (e.target.value === "") {
-      setInputEmail(false);
-      setInputEmailValue(e.target.value);
-      console.log("id : " + inputEmail);
-      console.log("id.value : " + inputEmailValue);
-    }
+  const handleSelect = (e) => {
+    setLinkSelected(e.target.value);
   };
 
-  //가운데 중간 이메일 선택
-  const [inputSelectEmailValue, setInputSelectEmailValue] = useState(false);
-  const handleSelectEmailValue = (e) => {
-    if (e.target.value !== "") {
-      setInputSelectEmailValue(true);
-      console.log(inputSelectEmailValue);
-    } else if (e.target.value === "") {
-      setInputSelectEmailValue(false);
-      console.log(inputSelectEmailValue);
-    }
-  };
-
-  //맨 밑 콘텐츠
-  const [inputContent, setInputContent] = useState(false);
-  const [inputContentValue, setInputContentValue] = useState("");
-
-  const handleContentValue = (e) => {
-    if (e.target.value !== "") {
-      setInputContentValue(e.target.value);
-      setInputContent(true);
-      console.log("content : " + inputContent);
-      console.log("content.value : " + inputContentValue);
-    } else if (e.target.value === "") {
-      setInputContentValue(e.target.value);
-      setInputContent(false);
-      console.log("content : " + inputContent);
-      console.log("content.value : " + inputContentValue);
-    }
-  };
-
-  const [isActive, setIsActive] = useState(false);
-
-  const checkValid = () => {
-    inputEmailValue.include("@") && inputContentValue.length >= 1
-      ? setIsActive(true)
-      : setIsActive(false);
-  };
+  // const [inputValue, setInputValue] = useState(false);
+  // const inputTest = (e) => {
+  //   if (e.target.value != "") {
+  //     setInputValue(true);
+  //     console.log(inputValue);
+  //   } else if (e.target.value == "") {
+  //     setInputValue(false);
+  //     console.log(inputValue);
+  //   }
+  // };
 
   function handleSubmit(e) {
-    alert("성공적으로 메일을 보냈습니다.");
+    alert(t("mailAle"));
   }
+
+  const [personName, setPersonName] = React.useState([]);
+
+  const handleChange = (e) => {
+    setPersonName(e.target.value);
+  };
+
+  const ITEM_HEIGHT = 48;
+  const ITEM_PADDING_TOP = 8;
+ 
 
   return (
     <FormWrap>
+      
+
+
       <div style={{ display: "none" }}>
-        {Selected === "rlaehgusqp@naver.com"
+        {linkSelected === "rlaehgusqp@naver.com"
           ? (docUrl = docsList[0])
-          : Selected === "fbznffldj998@naver.com"
+          : linkSelected === "fbznffldj998@naver.com"
           ? (docUrl = docsList[1])
-          : Selected === "moonb1504@gmail.com"
+          : linkSelected === "moonb1504@gmail.com"
           ? (docUrl = docsList[2])
-          : Selected === "jeuns1108@gmail.com"
+          : linkSelected === "jeuns1108@gmail.com"
           ? (docUrl = docsList[3])
-          : Selected === "tmddnjs513@naver.com"
+          : linkSelected === "tmddnjs513@naver.com"
           ? (docUrl = docsList[4])
           : console.log("")}
       </div>
@@ -356,32 +312,76 @@ const ContactSend = ({
             id="email"
             name="email"
             placeholder={t("InquiryPage7")}
-            onKeyUp={checkValid}
-            onChange={handleEmailValue}
+            // onChange={inputTest}
           />
 
           {/*Select 이메일 */}
-          <div>
-            <FormDevEmail
+          <DropdownContain
+          style={{
+            position:"relative",
+            left:"50%",
+            marginLeft:"-150px",
+          }}>
+            <Select2 className="select2"
               type="text"
               id="usr"
               name="username"
-              placeholder="Select an address to send to"
-              onChange={handleSelectEmailValue}
-              value={Selected}
+              displayEmpty
+              style={{
+                width: "300px",
+                height: "41px",
+                marginTop: "13px",
+                marginLeft: "8px",
+                background: "#none",
+
+                position: "relative",
+          
+                top: "205px",
+                margin: "auto",
+                textAlign: "center",
+                backgroundColor: "#e8f2ff",
+                border: "none",
+                fontFamily: "notoMed",
+                fontStyle: "normal",
+                fontWeight: "500",
+                fontSize: "14px",
+                lineHeight: "17px",
+                /* identical to box height */
+
+                color: "#bbbbbb",
+
+                /* Inside auto layout */
+
+                flex: "none",
+                order: "1",
+                flexGrow: "0",
+              }}
+              onChange={handleSelect}
+              value={linkSelected}
+              input={<OutlinedInput />}
+              
             >
-              <FormOption>{t("InquiryPage8")}</FormOption>
-              {selectList.map((item) => (
-                <FormOption value={item} key={item}>
-                  {item}
-                </FormOption>
+              <MenuItem2 disabled value="">
+                <span>{t("InquiryPage8")}</span>
+              </MenuItem2>
+              {selectList.map((name) => (
+                <MenuItem2
+                  key={name}
+                  value={name}
+                >
+                  {name}
+                  {console.log(name)}
+                </MenuItem2>
               ))}
-            </FormDevEmail>
-          </div>
+            </Select2>
+          </DropdownContain>
         </div>
 
         {/*Comment 콘텐츠*/}
-        <div>
+        <div style={{
+          position:"relative",
+          top:"-225px",
+        }}>
           <FormContent
             rows="5"
             id="comment"
@@ -389,19 +389,21 @@ const ContactSend = ({
             placeholder={t("InquiryPage9")}
             ref={textRef}
             onInput={handleResizeHeight}
-            onChange={handleContentValue}
-            onKeyUp={checkValid}
           ></FormContent>
         </div>
-        <button
+        <button 
+          style={{ position:"relative", top:"78px",}}
           id="loginBtn"
-          className={isActive ? "activeBtn" : "unactiveBtn"}
+          className={"unactiveBtn"}
           type="submit"
         >
           <FormBtnContent>{t("InquiryPage10")}</FormBtnContent>
         </button>
       </Form>
       <iframe id="iframe1" name="iframe1" style={{ display: "none" }} />
+
+      
+
     </FormWrap>
   );
 };

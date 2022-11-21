@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import Slider2 from "react-slick";
-
+import "../../App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -37,13 +37,14 @@ const Home1 = styled.div`
 const Home1P1 = styled.div`
   position: absolute;
   text-align: left;
+  width: 900px;
   left: 8.38%;
   right: 31.83%;
   top: 10.71%;
   bottom: 76.9%;
   white-space: pre-line;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -58,9 +59,10 @@ const Home1P2 = styled.div`
   left: 8.38%;
   right: 38.86%;
   top: 25.24%;
+  width:1000px;
   bottom: 70.48%;
-
-  font-family: "Noto Sans CJK KR";
+  text-align: left;
+  font-family: "notoReg";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -89,7 +91,7 @@ const NavStartBtn = styled(Link)`
   box-shadow: 3px 5px 10px rgba(26, 115, 232, 0.15);
   border-radius: 100px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -97,6 +99,10 @@ const NavStartBtn = styled(Link)`
   text-align: center;
   color: #ffffff;
   text-decoration: none;
+  &:hover {
+    background-color:#1250A2;
+    transition-duration: 0.17s;
+  }
 `;
 
 const Home2 = styled.div`
@@ -117,7 +123,7 @@ const Home2P1 = styled.p`
   margin-left: -225px;
 
   text-align: center;
-  font-family: "Pretendard";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -176,7 +182,7 @@ const Home3P1 = styled.div`
   margin-left: -221px;
   top: 90px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 42px;
@@ -190,7 +196,7 @@ const Slider2P1 = styled.p`
   width: 59px;
   height: 27px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -211,7 +217,7 @@ const Slider2P2 = styled.p`
   width: 400px;
   height: 53px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -227,15 +233,15 @@ const Slider2P2 = styled.p`
 `;
 
 const Slider2P3 = styled.p`
-  width: 476px;
+  width: 448px;
   height: 144px;
   white-space: pre-line;
 
   padding-top: 36px;
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoMed";
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 36px;
 
   color: #202124;
@@ -257,14 +263,14 @@ const Home4 = styled.div`
 `;
 
 const Home4P1 = styled.p`
-  left: 58px;
+  left: 76px;
   top: 66px;
-
+  text-align: left;
   position: absolute;
   width: 422px;
   height: 59px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
@@ -274,8 +280,8 @@ const Home4P1 = styled.p`
 `;
 const Home4Img1 = styled.img`
   position: absolute;
-  width: 532px;
-  height: 614px;
+  width: 562px;
+  height: 644px;
   left: 38px;
   top: 203px;
 `;
@@ -283,8 +289,7 @@ const Home4P2 = styled.p`
   position: absolute;
   left: 637px;
   top: 230px;
-
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 34px;
@@ -292,7 +297,7 @@ const Home4P2 = styled.p`
 
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  justify-content: center;
   padding: 10px 40px;
   gap: 10px;
 
@@ -341,7 +346,7 @@ const Home4P4 = styled.p`
   padding: 10px 0px;
   gap: 10px;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoBold";
   font-style: normal;
   font-weight: 700;
   font-size: 34px;
@@ -354,8 +359,8 @@ const Home4P4 = styled.p`
 const Home4Img2 = styled.img`
   position: absolute;
   width: 1098px;
-  height: 448.1px;
-  left: 28px;
+  height: 460.1px;
+  left: 45px;
   top: 1070px;
 `;
 const Home4P5 = styled.p`
@@ -366,7 +371,7 @@ const Home4P5 = styled.p`
   width: 1050px;
   height: 216px;
   text-align: start;
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoReg";
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -378,16 +383,16 @@ const Home4P5 = styled.p`
 const Home4Img3 = styled.img`
   position: absolute;
   width: 1030px;
-  height: 440px;
-  left: -185px;
-  top: 1700px;
+  height: 455px;
+  left: -188px;
+  top: 1670px;
 `;
 const Home4Img4 = styled.img`
   position: absolute;
-  width: 540px;
-  height: 440px;
-  left: 600px;
-  top: 1700px;
+  width: 565px;
+  height: 462px;
+  left: 575px;
+  top: 1666px;
 `;
 
 const Home4P6 = styled.p`
@@ -395,11 +400,11 @@ const Home4P6 = styled.p`
   width: 1050px;
   height: 166px;
   left: 72px;
-  top: 2200px;
+  top: 2150px;
 
   text-align: start;
 
-  font-family: "Noto Sans CJK KR";
+  font-family: "notoReg";
   font-style: normal;
   font-weight: 400;
   font-size: 21px;
@@ -410,12 +415,12 @@ const Home4P6 = styled.p`
 const Home4P7 = styled.a`
 
   text-decoration: none;
-  font-family: 'Noto Sans CJK KR';
-
+  font-family: 'notoMed';
+  justify-content:center;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 27px;
+  line-height: 47px;
   /* identical to box height */
 
   color: #000000;
@@ -430,10 +435,15 @@ const Home4P7 = styled.a`
   width: 432px;
   height: 47px;
   left: 75px;
-  top: 2470px;
+  top: 2370px;
   
   background: #F6C667;
-  border-radius: 15px;`;
+  border-radius: 15px;
+  &:hover{
+    background-color:#be994f;
+    transition-duration:0.17s;
+  }
+  `;
 
 const Home4P7Content = styled.li`
 
@@ -637,28 +647,28 @@ const Home = () => {
         <Home4P1>{t("TechnicalDescription")}</Home4P1>
 
         <Home4Img1 src={HomeImg3_1}></Home4Img1>
-        <Home4P2>{t("TDtext1")}</Home4P2>
+        <Home4P2 style={{textAlign:"center"}}>{t("TDtext1")}</Home4P2>
         <Home4P3>
 
-          <p>
-            {t("TDtext2")}
+          <p style={{fontFamily:"notoReg", fontSize:"23px"}}>
+            &nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext2First")}</span>{t("TDtext2")}
           </p>
-          <p>
-            {t("TDtext3")}
+          <p style={{fontFamily:"notoReg", fontSize:"23px"}}>
+            &nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext3First")}</span>{t("TDtext3")}
           </p>
-          <p>
-            {t("TDtext4")}
+          <p style={{fontFamily:"notoReg", fontSize:"23px"}}>
+            &nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext4First")}</span>{t("TDtext4")}
           </p>
 
         </Home4P3>
         <Home4P4> {t("TDtext5")}</Home4P4>
         <Home4Img2 src={HomeImg3_2}></Home4Img2>
 
-        <Home4P5>{t("TDtext6")}</Home4P5>
+        <Home4P5>&nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext6First")}</span>{t("TDtext6")}</Home4P5>
         <Home4Img3 src={HomeImg3_3}></Home4Img3>
         <Home4Img4 src={HomeImg3_4}></Home4Img4>
 
-        <Home4P6>{t("TDtext7")}</Home4P6>
+        <Home4P6>&nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext7First")}</span>{t("TDtext7")}</Home4P6>
         <Home4P7 href="https://gazecapture.csail.mit.edu/">
           {t("TDtext8")}
 
