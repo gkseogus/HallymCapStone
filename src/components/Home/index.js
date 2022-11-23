@@ -132,13 +132,12 @@ const Home2P1 = styled.p`
   color: #000000;
 `;
 
-const Home2Div1 = styled.div`
+const Home2Div1 = styled.iframe`
   position: relative;
   width: 846px;
   height: 480px;
-  left: 50%;
-  top: 20%;
-  margin-left: -423px;
+  top: 25%;
+
   background-color: gray;
 `;
 
@@ -556,7 +555,7 @@ const Home = () => {
 
       <Home2>
         <Home2P1>{t("DemonstrationVideo")}</Home2P1>
-        <Home2Div1 />
+        <Home2Div1 src="https://www.youtube.com/embed/Le5cUlR-9G8" title="eyetag 시연영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Home2Div1>
       </Home2>
 
       <Home3>
