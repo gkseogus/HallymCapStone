@@ -253,6 +253,23 @@ const ContactSend = ({
 
   const handleSelect = (e) => {
     setLinkSelected(e.target.value);
+    console.log("linkSelect : "+linkSelected);
+    console.log("docUrl : " + docUrl);
+
+    if (e.target.value !== 'nothing') {
+      setTimeout(handleCheck, 5000);
+    }
+  };
+
+  const handleCheck = () => {
+    // 비밀번호 무입력 상태일 때와 둘 중에 하나의 값이 입력 상태가 아닐때
+    if (linkSelected.length > 10) {
+      console.log("이메일 들어옴");
+      // 비밀번호가 같다면 일치
+    } else{
+      console.log("이메일 안들어옴");
+      // 비밀번호가 같지 않다면 불일치
+    } 
   };
 
   // const [inputValue, setInputValue] = useState(false);
@@ -270,16 +287,6 @@ const ContactSend = ({
     alert(t("mailAle"));
   }
 
-  const [personName, setPersonName] = React.useState([]);
-
-  const handleChange = (e) => {
-    setPersonName(e.target.value);
-  };
-
-  const ITEM_HEIGHT = 48;
-  const ITEM_PADDING_TOP = 8;
- 
-
   return (
     <FormWrap>
       
@@ -289,14 +296,15 @@ const ContactSend = ({
         {linkSelected === "rlaehgusqp@naver.com"
           ? (docUrl = docsList[0])
           : linkSelected === "fbznffldj998@naver.com"
-          ? (docUrl = docsList[1])
-          : linkSelected === "moonb1504@gmail.com"
-          ? (docUrl = docsList[2])
-          : linkSelected === "jeuns1108@gmail.com"
-          ? (docUrl = docsList[3])
-          : linkSelected === "tmddnjs513@naver.com"
-          ? (docUrl = docsList[4])
-          : console.log("")}
+            ? (docUrl = docsList[1])
+            : linkSelected === "moonb1504@gmail.com"
+              ? (docUrl = docsList[2])
+              : linkSelected === "jeuns1108@gmail.com"
+                ? (docUrl = docsList[3])
+                : linkSelected === "tmddnjs513@naver.com"
+                  ? (docUrl = docsList[4])
+                  : (docUrl = "nothing")
+          }
       </div>
       <Form
         method="post"
