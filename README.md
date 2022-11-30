@@ -49,9 +49,17 @@ EYE TAG
 
 다운로드 파일의 이름을 저장
 
-# Site
+# Contributors
 
-https://master.dezzfcfzne8g7.amplifyapp.com/
+pm & dev - 한대현
+ 
+dev - 김도현
+
+design - 김민진
+
+ai - 전은서
+
+pl - 방승원
 
 # Code Convention
 
@@ -77,3 +85,7 @@ Google Code Convention을 적용
 1. 커밋메세지는 다음과 같다. 날짜 + 변경사항 (이때 이슈 처리: fix, 컴포넌트 추가: add to 컴포넌트명, 데이터 추가: add to 데이터파일명, 적용: apply to 적용사항, 삭제: delete to 삭제사항 )
 2. 날짜는 다음과 같이 처리한다. (22년 9월 5일 -> 220905)
 3. dev 브랜치 : 김도현 // master 브랜치 : 한대현
+
+# Site
+
+https://master.dezzfcfzne8g7.amplifyapp.com/
