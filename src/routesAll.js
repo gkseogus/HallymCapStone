@@ -7,7 +7,7 @@ import Home from "./components/Home";
 import Main from "./components/Main";
 import Contact from "./components/Contact";
 
-const AllRoutesApp = () => (
+const RoutesAll = () => (
   <Router>
     <Routes>
       {["/home", "/"].map((path) => {
@@ -52,4 +52,4 @@ const AllRoutesApp = () => (
   </Router>
 );
 
-export default React.memo(AllRoutesApp);
+export default React.memo(RoutesAll);

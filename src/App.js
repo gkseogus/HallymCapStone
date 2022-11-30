@@ -1,6 +1,6 @@
 import "./App.css";
 import { RecoilRoot } from "recoil";
-import AllRountes from "./AllRountes";
+import RoutesAll from "./RoutesAll";
 import React from "react";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
@@ -9,7 +9,7 @@ const App = () => {
     <div className="App">
       <RecoilRoot>
         <ScrollToTopButton />
-        <AllRountes />
+        <RoutesAll />
       </RecoilRoot>
     </div>
   );
