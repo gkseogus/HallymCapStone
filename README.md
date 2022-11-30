@@ -1,6 +1,6 @@
 # About The Project
 
-EYE TAG
+사용자의 눈을 추적해 데이터를 분석하는 사이트
 
 # Feature List
 
