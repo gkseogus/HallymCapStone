@@ -55,15 +55,15 @@ const Footer = () => {
     <Contain>
       <TextContain>
         <FooterTeamText>Eye Tag</FooterTeamText>
-        <PositonText>Dev</PositonText>
+        <PositonText>PM & Dev |</PositonText>
         <NameText>Daehyeon Han</NameText>
-        <PositonText>Dev</PositonText>
+        <PositonText>Dev |</PositonText>
         <NameText>Dohyeon Kim</NameText>
-        <PositonText>AI</PositonText>
+        <PositonText>AI |</PositonText>
         <NameText>Eunseo Jeon</NameText>
-        <PositonText>UX/UI</PositonText>
+        <PositonText>UX/UI |</PositonText>
         <NameText>Minjin Kim</NameText>
-        <PositonText>PM</PositonText>
+        <PositonText>PL |</PositonText>
         <NameText>Seungwon Bang</NameText>
         <CopyrightText>©Copyright 2022</CopyrightText>
       </TextContain>
