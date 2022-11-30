@@ -59,7 +59,7 @@ const Home1P2 = styled.div`
   left: 8.38%;
   right: 38.86%;
   top: 25.24%;
-  width:1000px;
+  width: 1000px;
   bottom: 70.48%;
   text-align: left;
   font-family: "notoReg";
@@ -100,7 +100,7 @@ const NavStartBtn = styled(Link)`
   color: #ffffff;
   text-decoration: none;
   &:hover {
-    background-color:#1250A2;
+    background-color: #1250a2;
     transition-duration: 0.17s;
   }
 `;
@@ -313,7 +313,7 @@ const Home4P3 = styled.p`
   position: absolute;
   left: 642px;
   top: 300px;
-  
+
   width: 419px;
   height: 407px;
 
@@ -322,7 +322,7 @@ const Home4P3 = styled.p`
   font-weight: 400;
   font-size: 21px;
   line-height: 36px;
-  
+
   color: #000000;
 
   /* Inside auto layout */
@@ -408,14 +408,14 @@ const Home4P6 = styled.p`
   font-weight: 400;
   font-size: 21px;
   line-height: 36px;
-  
-  color: #000000;`;
+
+  color: #000000;
+`;
 
 const Home4P7 = styled.a`
-
   text-decoration: none;
-  font-family: 'notoMed';
-  justify-content:center;
+  font-family: "notoMed";
+  justify-content: center;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -429,43 +429,19 @@ const Home4P7 = styled.a`
   align-items: flex-start;
   padding: 10px 20px;
   gap: 10px;
-  
+
   position: absolute;
   width: 432px;
   height: 47px;
   left: 75px;
   top: 2370px;
-  
-  background: #F6C667;
+
+  background: #f6c667;
   border-radius: 15px;
-  &:hover{
-    background-color:#be994f;
-    transition-duration:0.17s;
+  &:hover {
+    background-color: #be994f;
+    transition-duration: 0.17s;
   }
-  `;
-
-const Home4P7Content = styled.li`
-
-  padding-top: 9px;
-  width: 100%;
-  height: 100%;
-
-  font-family: 'Noto Sans CJK KR';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 27px;
-  /* identical to box height */
-
-
-  color: #000000;
-
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 `;
 
 const Pre = styled.div`
@@ -492,17 +468,16 @@ const Home = () => {
   const { t } = useTranslation("");
 
   const settings = {
-      draggable:false,
-      fade:true,
-      dots: false,
-      infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 5000,
-      cssEase: "linear"
-
+    draggable: false,
+    fade: true,
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
   };
 
   const twoSettings = {
@@ -522,6 +497,7 @@ const Home = () => {
       </Pre>
     ),
   };
+
   const ScrollTop = () => {
     window.scrollTo(0, 0);
   };
@@ -552,12 +528,16 @@ const Home = () => {
           {t("bannerButton")}
         </NavStartBtn>
       </Home1>
-
       <Home2>
         <Home2P1>{t("DemonstrationVideo")}</Home2P1>
-        <Home2Div1 src="https://www.youtube.com/embed/Le5cUlR-9G8" title="eyetag 시연영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></Home2Div1>
+        <Home2Div1
+          src="https://www.youtube.com/embed/Le5cUlR-9G8"
+          title="eyetag 시연영상"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></Home2Div1>
       </Home2>
-
       <Home3>
         <Home3Gra />
         <Home3P1>{t("UserExamples")}</Home3P1>
@@ -641,36 +621,53 @@ const Home = () => {
           </div>
         </Slider2>
       </Home3>
-
       <Home4>
         <Home4P1>{t("TechnicalDescription")}</Home4P1>
-
         <Home4Img1 src={HomeImg3_1}></Home4Img1>
-        <Home4P2 style={{textAlign:"center"}}>{t("TDtext1")}</Home4P2>
+        <Home4P2 style={{ textAlign: "center" }}>{t("TDtext1")}</Home4P2>
         <Home4P3>
-
-          <p style={{fontFamily:"notoReg", fontSize:"23px"}}>
-            &nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext2First")}</span>{t("TDtext2")}
+          <p style={{ fontFamily: "notoReg", fontSize: "23px" }}>
+            &nbsp;&nbsp;&nbsp;
+            <span style={{ fontFamily: "notoMed", fontSize: "32px" }}>
+              {t("TDtext2First")}
+            </span>
+            {t("TDtext2")}
           </p>
-          <p style={{fontFamily:"notoReg", fontSize:"23px"}}>
-            &nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext3First")}</span>{t("TDtext3")}
+          <p style={{ fontFamily: "notoReg", fontSize: "23px" }}>
+            &nbsp;&nbsp;&nbsp;
+            <span style={{ fontFamily: "notoMed", fontSize: "32px" }}>
+              {t("TDtext3First")}
+            </span>
+            {t("TDtext3")}
           </p>
-          <p style={{fontFamily:"notoReg", fontSize:"23px"}}>
-            &nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext4First")}</span>{t("TDtext4")}
+          <p style={{ fontFamily: "notoReg", fontSize: "23px" }}>
+            &nbsp;&nbsp;&nbsp;
+            <span style={{ fontFamily: "notoMed", fontSize: "32px" }}>
+              {t("TDtext4First")}
+            </span>
+            {t("TDtext4")}
           </p>
-
         </Home4P3>
         <Home4P4> {t("TDtext5")}</Home4P4>
         <Home4Img2 src={HomeImg3_2}></Home4Img2>
-
-        <Home4P5>&nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext6First")}</span>{t("TDtext6")}</Home4P5>
+        <Home4P5>
+          &nbsp;&nbsp;&nbsp;
+          <span style={{ fontFamily: "notoMed", fontSize: "32px" }}>
+            {t("TDtext6First")}
+          </span>
+          {t("TDtext6")}
+        </Home4P5>
         <Home4Img3 src={HomeImg3_3}></Home4Img3>
         <Home4Img4 src={HomeImg3_4}></Home4Img4>
-
-        <Home4P6>&nbsp;&nbsp;&nbsp;<span style={{fontFamily:"notoMed", fontSize:"32px"}}>{t("TDtext7First")}</span>{t("TDtext7")}</Home4P6>
+        <Home4P6>
+          &nbsp;&nbsp;&nbsp;
+          <span style={{ fontFamily: "notoMed", fontSize: "32px" }}>
+            {t("TDtext7First")}
+          </span>
+          {t("TDtext7")}
+        </Home4P6>
         <Home4P7 href="https://gazecapture.csail.mit.edu/">
           {t("TDtext8")}
-
         </Home4P7>
       </Home4>
     </div>

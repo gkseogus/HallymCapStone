@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 import HomeNavBar from "./components/HomeNavBar";
 import MainNavBar from "./components/Main/MainNavBar";
 import Footer from "./components/Footer";
@@ -14,7 +13,7 @@ const AllRoutesApp = () => (
       {["/home", "/"].map((path) => {
         return (
           <Route
-            key={uuidv4()}
+            key={path}
             path={path}
             element={
               <div>
@@ -28,7 +27,7 @@ const AllRoutesApp = () => (
       })}
       ;
       <Route
-        key={uuidv4()}
+        key="main"
         path={"main"}
         element={
           <div>
@@ -39,7 +38,7 @@ const AllRoutesApp = () => (
         }
       />
       <Route
-        key={uuidv4()}
+        key="contact"
         path={"contact"}
         element={
           <div>

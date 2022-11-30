@@ -181,9 +181,9 @@ const MainAnalyze = (props) => {
 
   const downloadFile = useCallback(() => {
     let fileName = props.files[0].key;
-    let output = "* 타입의 데이터";
+    let OUTPUT = "* 타입의 데이터";
     const element = document.createElement("a");
-    const file = new Blob([output], {
+    const file = new Blob([OUTPUT], {
       type: "*",
     });
     element.href = URL.createObjectURL(file);

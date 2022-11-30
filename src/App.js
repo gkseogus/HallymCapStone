@@ -4,7 +4,7 @@ import AllRountes from "./AllRountes";
 import React from "react";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <RecoilRoot>
@@ -13,6 +13,6 @@ function App() {
       </RecoilRoot>
     </div>
   );
-}
+};
 
 export default App;
