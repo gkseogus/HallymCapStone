@@ -1,6 +1,6 @@
 import "./App.css";
 import { RecoilRoot } from "recoil";
-import RoutesAll from "./RoutesAll";
+import RoutesAll from "./AllRoute";
 import React from "react";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
